@@ -2,6 +2,8 @@ const MessengerClient  = require( "./lib/messengerClient" );
 const getSecrets       = require( "./lib/getSecrets" );
 const subscribe        = require( "./lib/addSubscriber" );
 const removeSubscriber = require( "./lib/removeSubscriber" );
+const sendUpdateViaWorkerLambda = require( "./lib/sendUpdateViaWorkerLambda" );
+const storeNewVersionOfContent  = require( "./lib/storeNewVersionOfContent" );
 
 function sendHelp( messengerClient, userId ) {
     messengerClient.sendMessage({
@@ -34,7 +36,6 @@ exports.handler = function ( event, context, respondToMessenger ) {
                 "SUBSCRIBE": ( userId, payload ) => {
                     console.log( "subscribing" );
                     subscribe( userId, payload.cpsId, messengerClient )
-                        // .then( sendUpdateToUser )
                         .catch( console.log );
                 },
                 "UNSUBSCRIBE": ( userId, payload ) => {
@@ -53,6 +54,12 @@ exports.handler = function ( event, context, respondToMessenger ) {
                     "userId": userId,
                     "message": `automated reply to your message "${message}"`
                 });
+
+                if ( message.toUpperCase() === "HELP" ) {
+                    payload = {
+                        "type": "HELP"
+                    }
+                }
 
                 messageOptions[ payload.type ]( userId, payload );
 

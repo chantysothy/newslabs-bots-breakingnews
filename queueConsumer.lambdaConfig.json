@@ -1,12 +1,18 @@
 {
-    "memorySize": 128,
-    "name": "breakingNewsQueueConsumer",
-    "handler": "index.handler",
-    "runtime": "nodejs6.10",
-    "timeout": 3,
-    "userDefinedCodeToDeploy": [
-        "queueConsumer.js",
-        "lib/getContentStoreAsset.js",
-        "lib/getSubscribers.js"
-    ]
+ "memorySize": 128,
+ "name": "breakingNewsQueueConsumer",
+ "handler": "index.handler",
+ "runtime": "nodejs6.10",
+ "timeout": 3,
+ "userDefinedCodeToDeploy": [
+  "queueConsumer.js",
+  "lib/getContentStoreAsset.js",
+  "lib/getDataToDetermineHowToUpdateUsers.js",
+  "lib/getLatestUpdate.js",
+  "lib/storeNewVersionOfContent.js",
+  "lib/sendUpdateViaWorkerLambda.js"
+ ],
+ "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
+ "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueConsumerRole",
+ "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueConsumer"
 }

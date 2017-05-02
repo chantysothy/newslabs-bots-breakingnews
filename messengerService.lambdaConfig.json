@@ -11,7 +11,9 @@
   "lib/getSecrets.js",
   "lib/addSubscriber.js",
   "lib/removeSubscriber.js",
-  "lib/getDbCreds.js"
+  "lib/getDbCreds.js",
+  "lib/sendUpdateViaWorkerLambda.js",
+  "lib/storeNewVersionOfContent.js"
  ],
  "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsMessengerService",
  "roleArn": "arn:aws:iam::060170161162:role/breakingNewsMessengerServiceRole"

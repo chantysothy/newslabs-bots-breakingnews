@@ -82,10 +82,31 @@ function createRoleForLambda() {
                         utils.addValueToLambdaConfig( "roleArn", data.Role.Arn );
                         iam.attachRolePolicy({
                             "RoleName": roleName,
-                            "PolicyArn" : config.customRolePolicy || "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                            "PolicyArn" : "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
                         }, ( err ) => {
                             if ( !err ) {
-                                resolve();
+
+                                if ( config.customRolePolicy ) {
+
+                                    iam.attachRolePolicy({
+                                        "RoleName": roleName,
+                                        "PolicyArn" : config.customRolePolicy
+                                    }, ( err ) => {
+                                        if ( !err ) {
+
+                                            setTimeout( () => {
+                                                resolve()
+                                            }, 1000 );
+
+                                        } else {
+                                            reject( err );
+                                        }
+                                    });
+
+                                } else {
+                                    resolve();
+                                }
+
                             } else {
                                 reject( err );
                             }
