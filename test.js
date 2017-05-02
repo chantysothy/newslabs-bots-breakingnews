@@ -397,11 +397,11 @@ function processQueueWorker () {
 utils.authenticate()
     // .then( setupGetStartedPage )
     // .then( customQuery )
-    // .then( subscribe )
+    .then( subscribe )
     // .then( unSubscribe )
     // .then( listUsers )
     // .then( askForHelp )
     // .then( getMsgFromQueue )
-    .then( listStories )
+    // .then( listStories )
     // .then( processQueueWorker )
     .catch( console.log );

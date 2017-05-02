@@ -10,7 +10,8 @@
   "lib/getDataToDetermineHowToUpdateUsers.js",
   "lib/getLatestUpdate.js",
   "lib/storeNewVersionOfContent.js",
-  "lib/sendUpdateViaWorkerLambda.js"
+  "lib/sendUpdateViaWorkerLambda.js",
+  "lib/getSummaryFromCpsAsset.js"
  ],
  "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
  "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueConsumerRole",
