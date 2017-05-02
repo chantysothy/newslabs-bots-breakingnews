@@ -1,0 +1,18 @@
+{
+ "memorySize": 256,
+ "name": "breakingNewsMessengerService",
+ "description": "Service for handling the breaking news messenger service.",
+ "runtime": "nodejs6.10",
+ "timeout": 9,
+ "handler": "messengerService.handler",
+ "userDefinedCodeToDeploy": [
+  "messengerService.js",
+  "lib/messengerClient.js",
+  "lib/getSecrets.js",
+  "lib/addSubscriber.js",
+  "lib/removeSubscriber.js",
+  "lib/getDbCreds.js"
+ ],
+ "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsMessengerService",
+ "roleArn": "arn:aws:iam::060170161162:role/breakingNewsMessengerServiceRole"
+}

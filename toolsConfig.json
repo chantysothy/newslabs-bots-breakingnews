@@ -1,0 +1,8 @@
+{
+    "bastionService": {
+        "endpoint": "https://wormhole.api.bbci.co.uk/account/060170161162/credentials",
+        "certPath": "/Users/maslet02/workspace/certs/certificate.pem",
+        "cloudServicesRoot": "/Users/maslet02/workspace/certs/cloudservicesroot.pem"
+    },
+    "region": "eu-west-1"
+}

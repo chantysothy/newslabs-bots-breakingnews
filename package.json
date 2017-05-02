@@ -1,0 +1,21 @@
+{
+  "name": "newslabs-breakingnews-bot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./index.js",
+  "dependencies": {
+    "lodash": "4.17.4",
+    "mysql":  "2.13"
+  },
+  "devDependencies": {
+    "archiver":           "latest",
+    "aws-sdk":            "latest",
+    "chalk":              "latest",
+    "command-line-args":  "latest",
+    "console.table":      "latest",
+    "fs-extra":           "latest",
+    "node-cmd":           "latest",
+    "request":            "latest",
+    "xml2js":             "0.4.17"
+  }
+}
