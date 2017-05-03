@@ -1,10 +1,11 @@
 const mysql = require( "mysql" );
 const _     = require( "lodash" );
 
-const utils           = require( "./scripts/utils" );
-const getDbCreds      = require( "./lib/getDbCreds" );
-const getSecrets      = require( "./lib/getSecrets" );
-const MessengerClient = require( "./lib/messengerClient" );
+const utils                 = require( "./scripts/utils" );
+const getDbCreds            = require( "./lib/getDbCreds" );
+const getSecrets            = require( "./lib/getSecrets" );
+const MessengerClient       = require( "./lib/messengerClient" );
+const removeOldBreakingNews = require( "./removeOldBreakingNews" );
 
 function setupGetStartedPage() {
 
@@ -223,8 +224,54 @@ function customQuery() {
 		        const g = "UPDATE table SET credit = '+7' WHERE id='1'";
 		        const h = "SELECT * FROM usersFollowingBreakingNewsStories JOIN breakingNewsStoryContentSentToUser on ( usersFollowingBreakingNewsStories.cpsId = breakingNewsStoryContentSentToUser.cpsId )"
 		        const i = "DELETE FROM breakingNewsStoryContentSentToUser";
+		        const j = "SELECT * FROM breakingNewsStoryContentSentToUser WHERE created <= subdate(current_date, INTERVAL 24 HOUR)"
 
-		        connection.query(i, function (error, results, fields) {
+		        connection.query(j, function (error, results, fields) {
+
+		            if (error) {
+		                console.log( error );
+		            } else {
+		            	console.log( results );
+		            }
+
+		            resolve();
+
+		        });
+
+		        connection.end();
+
+		    });
+
+    });
+
+}
+
+function createTestDataForRemoveOldBreakingNews () {
+
+	return new Promise( ( resolve ) => {
+
+		getDbCreds()
+    		.then( ( dbCreds ) => {
+
+		        var connection = mysql.createConnection( dbCreds );
+		     
+		        connection.connect();
+
+		        const jsonContent = connection.escape( 
+		        	JSON.stringify(
+		        			{"type": "IMAGES", "content": [{"id": "95273937", "desc": "A man believed to be the suspect received medical treatment", "href": "http://c.files.bbci.co.uk/120D1/production/_95273937_attacker_ap.jpg"}, {"id": "95273935", "desc": "line", "href": "http://c.files.bbci.co.uk/D2B1/production/_95273935_line976.jpg"}, {"id": "95272337", "desc": "Police surround suspected attacker", "href": "http://c.files.bbci.co.uk/11E6F/production/_95272337_floor_pa.jpg"}, {"id": "95273935", "desc": "line", "href": "http://c.files.bbci.co.uk/D2B1/production/_95273935_line976.jpg"}, {"id": "95273938", "desc": "Map", "href": "http://c.files.bbci.co.uk/147E1/production/_95273938_westminster_shooting_earth_624_v2.png"}, {"id": "95272955", "desc": "Parliament went into lockdown after the attack", "href": "http://c.files.bbci.co.uk/DA77/production/_95272955_aba_parliamentattack_05.jpg"}, {"id": "95272204", "desc": "Police on Westminster Bridge", "href": "http://c.files.bbci.co.uk/9D23/production/_95272204_bridge.jpg"}, {"id": "95271224", "desc": "Parliament", "href": "http://c.files.bbci.co.uk/A4E9/production/_95271224_parl_ap.jpg"}, {"id": "76020974", "desc": "line", "href": "http://news.bbcimg.co.uk/media/images/76020000/jpg/_76020974_line976.jpg"}]}
+		        		)
+		        	);
+
+		        const query = `
+		        	INSERT INTO 
+		        		breakingNewsStoryContentSentToUser
+		        	VALUES
+		        		('news/uk-98899889', ${jsonContent}, '2017-03-22 14:45:00'),
+		        		('news/uk-39355940', ${jsonContent}, '2017-03-22 14:45:00')
+		        `;
+
+		        connection.query( query, function (error, results, fields) {
 
 		            if (error) {
 		                console.log( error );
@@ -397,11 +444,13 @@ function processQueueWorker () {
 utils.authenticate()
     // .then( setupGetStartedPage )
     // .then( customQuery )
-    .then( subscribe )
+    // .then( subscribe )
     // .then( unSubscribe )
     // .then( listUsers )
     // .then( askForHelp )
     // .then( getMsgFromQueue )
-    // .then( listStories )
+    // .then( createTestDataForRemoveOldBreakingNews )
+    // .then( removeOldBreakingNews )
+    .then( listStories )
     // .then( processQueueWorker )
     .catch( console.log );
