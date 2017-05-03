@@ -44,7 +44,7 @@ function deployToLambda( zipFilePath ) {
                 
                 const params = {
                     "FunctionName": config.name,
-                    "Description":  config.desecription,
+                    "Description":  config.description,
                     "Runtime":      config.runtime,
                     "Role":         config.roleArn,
                     "Handler":      config.handler,

@@ -1,0 +1,18 @@
+{
+ "memorySize": 128,
+ "name": "breakingNewsRemoveOldBreakingNews",
+ "description": "Periodically called to remove CPS stories that are no longer breaking.",
+ "runtime": "nodejs6.10",
+ "timeout": 3,
+ "handler": "messengerService.handler",
+ "userDefinedCodeToDeploy": [
+  "lib/getDbCreds.js",
+  "lib/getUsersSubscribedToCpsId.js",
+  "lib/removeSubscriber.js",
+  "lib/messengerClient.js",
+  "lib/getSecrets.js"
+ ],
+ "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
+ "roleArn": "arn:aws:iam::060170161162:role/breakingNewsRemoveOldBreakingNewsRole",
+ "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsRemoveOldBreakingNews"
+}

@@ -16,7 +16,7 @@ function createLambda( zipFilePath ) {
 
     var params = {
         "FunctionName": config.name,
-        "Description": config.name,
+        "Description": config.description,
         "Publish": true,
         "Code": {
             "ZipFile": fs.readFileSync( zipFilePath )
