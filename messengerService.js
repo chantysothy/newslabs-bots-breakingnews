@@ -45,6 +45,9 @@ exports.handler = function ( event, context, respondToMessenger ) {
                 },
                 "HELP": ( userId ) => {
                     sendHelp( messengerClient, userId );
+                },
+                "GET_STARTED": () => {
+                    sendHelp( messengerClient, userId );
                 }
             };
 
@@ -65,9 +68,10 @@ exports.handler = function ( event, context, respondToMessenger ) {
 
             });
 
-            messengerClient.on( "postback", ( userId, payload, messageEvent ) => {
+            messengerClient.on( "postback", ( userId, payload, referral, messageEvent ) => {
 
-                messageOptions[ payload.type ]( userId, payload );
+                let msgObj = referral || payload;
+                messageOptions[ msgObj.type ]( userId, msgObj );
 
             });
 

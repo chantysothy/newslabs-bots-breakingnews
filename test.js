@@ -16,11 +16,25 @@ function setupGetStartedPage() {
 
         	const command = { 
 			    "get_started":{
-			        "payload": '{\"type\":\"SUBSCRIBE\", \"cpsId\":\"news/uk-39355940\"}'
+			        "payload": JSON.stringify({
+			        	"type": "GET_STARTED"
+			        })
 			    }
 			};
 			messengerClient._sendToFacebookAPI( command, { "messageType": "messengerProfile" } );
 		});
+}
+
+function removeGetStartedPage() {
+
+	getSecrets( "messenger" )
+        .then ( ( messengerSecrets ) => {
+
+        	var messengerClient = new MessengerClient( messengerSecrets );
+			messengerClient.removeGetStartedPage();
+
+		});
+
 }
 
 function subscribe() {
@@ -442,7 +456,8 @@ function processQueueWorker () {
 }
 
 utils.authenticate()
-    // .then( setupGetStartedPage )
+    .then( setupGetStartedPage )
+    // .then( removeGetStartedPage )
     // .then( customQuery )
     // .then( subscribe )
     // .then( unSubscribe )
@@ -451,6 +466,6 @@ utils.authenticate()
     // .then( getMsgFromQueue )
     // .then( createTestDataForRemoveOldBreakingNews )
     // .then( removeOldBreakingNews )
-    .then( listStories )
+    // .then( listStories )
     // .then( processQueueWorker )
     .catch( console.log );
