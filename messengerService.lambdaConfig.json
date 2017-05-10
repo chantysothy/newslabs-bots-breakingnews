@@ -4,9 +4,13 @@
  "description": "Service for handling the breaking news messenger service.",
  "runtime": "nodejs6.10",
  "timeout": 9,
- "handler": "messengerService.handler",
+ "environmentVariables": {
+  "NODE_ENV": "test"
+ },
+ "handler": "handler",
  "userDefinedCodeToDeploy": [
   "messengerService.js",
+  "settings.json",
   "lib/messengerClient.js",
   "lib/getSecrets.js",
   "lib/addSubscriber.js",

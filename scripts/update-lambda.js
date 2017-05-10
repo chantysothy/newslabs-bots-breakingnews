@@ -12,10 +12,12 @@ function configShouldBeUpdated( newConfig, deployedConfig ) {
     console.log( newConfig );
     console.log( deployedConfig );
     if ( 
-        ( newConfig.handler    !== deployedConfig.Handler    ) ||
-        ( newConfig.memorySize !== deployedConfig.MemorySize ) ||
-        ( newConfig.timeout    !== deployedConfig.Timeout    ) ||
-        ( newConfig.runtime    !== deployedConfig.Runtime    )
+        ( newConfig.handler     !== deployedConfig.Handler     ) ||
+        ( newConfig.memorySize  !== deployedConfig.MemorySize  ) ||
+        ( newConfig.timeout     !== deployedConfig.Timeout     ) ||
+        ( newConfig.runtime     !== deployedConfig.Runtime     ) ||
+        ( newConfig.Description !== deployedConfig.Description ) ||
+        ( newConfig.Environment !== deployedConfig.Environment )
     ) {
         shouldUpdate = true;
     }
@@ -26,7 +28,7 @@ function deployToLambda( zipFilePath ) {
 
     console.log( "Deploying zip to Lambda..." );
 
-    const config = utils.getLambdaConfigFile( process.env.LAMBDA_NAME );
+    const config = utils.getLambdaConfigFile();
 
     var lambda = new AWS.Lambda();
 
@@ -45,9 +47,12 @@ function deployToLambda( zipFilePath ) {
                 const params = {
                     "FunctionName": config.name,
                     "Description":  config.description,
+                    "Environment": {
+                        "Variables": config.environmentVariables
+                    },
                     "Runtime":      config.runtime,
                     "Role":         config.roleArn,
-                    "Handler":      config.handler,
+                    "Handler":      utils.getLambdaHandler( config.handler ),
                     "MemorySize":   config.memorySize,
                     "Timeout":      config.timeout
                 };

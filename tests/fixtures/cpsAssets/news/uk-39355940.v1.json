@@ -1,0 +1,364 @@
+
+{
+  "results" : [ {
+    "title" : "BBC News - Reports of shots outside UK Parliament",
+    "summary" : "Reports of shots outside UK Parliament, Palace of Westminster reportedly in lockdown",
+    "type" : "STY",
+    "lastUpdated" : "2017-03-22T17:43:56+00:00",
+    "firstCreated" : "2017-03-22T14:48:38+00:00",
+    "firstPublished" : "2017-03-22T14:48:38+00:00",
+    "lastPublished" : "2017-03-22T20:29:30+00:00",
+    "hasShortForm" : true,
+    "changeQueueId" : "300636324",
+    "changeQueueTimestamp" : "2017-03-22T20:29:19+00:00",
+    "body" : "<body xmlns=\"http://www.bbc.co.uk/asset\" xml:space=\"preserve\" xml:base=\"http://www.bbc.co.uk/article/abaae7a7-0e38-0349-8911-19e2ca119359\"><paragraph role=\"introduction\">Reports of shots outside UK Parliament, Palace of Westminster reportedly in lockdown</paragraph><paragraph>This breaking news story is being updated and more details will be published shortly. Please refresh the page for the fullest version.</paragraph><paragraph>If you want to receive Breaking News alerts via email, or on a smartphone or tablet via the BBC News App then details on how to do so are available on this help page. You can also follow @BBCBreaking on Twitter to get the latest alerts.</paragraph></body>",
+    "commentForm" : {
+      "open" : true,
+      "subject" : "Westminster",
+      "emailPrefix" : "Talkingpoint",
+      "introduction" : "Or use the form below",
+      "comments" : [ ]
+    },
+    "shortFormBody" : "<shortFormBody xmlns=\"http://www.bbc.co.uk/asset\" xml:space=\"preserve\" xml:base=\"http://www.bbc.co.uk/article/abaae7a7-0e38-0349-8911-19e2ca119359\"><paragraph>A police officer and a woman have been killed near Parliament in central London in what Scotland Yard are treating as a terrorist incident.</paragraph><paragraph>The woman was among several pedestrians struck by a car on Westminster bridge, before it crashed into railings.</paragraph><paragraph>An officer was stabbed in the Houses of Parliament by an attacker, who was shot by police.</paragraph><paragraph>Police said there were \"a number of casualties\" and a \"full counter-terrorism inquiry\" was under way.</paragraph></shortFormBody>",
+    "media" : {
+      "images" : {
+        "body" : {},
+        "index" : {},
+        "index-thumbnail" : {},
+        "slideshow" : {}
+      },
+      "videos" : {
+        "body" : {}
+      }
+    },
+    "relatedGroups" : [ {
+      "type" : "index",
+      "items" : [ {
+        "assetId" : "39358292",
+        "assetUri" : "/news/uk-39358292",
+        "firstCreated" : "2017-03-22T16:41:38+00:00",
+        "hasShortForm" : false,
+        "headline" : "Moment area around Houses of Parliament evacuated",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-03-22T16:47:03+00:00",
+        "media" : {
+          "images" : {
+            "index" : {
+              "95274825" : {
+                "height" : 576,
+                "width" : 1024,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/CE6F/production/_95274825_p04xpjxy.jpg",
+                "altText" : "The moment the area around the Houses of Parliament evacuated following reports of shots fired.",
+                "copyrightHolder" : "BBC"
+              }
+            }
+          },
+          "videos" : {
+            "primary" : {
+              "39358293" : {
+                "externalId" : "p04xp630",
+                "caption" : "Moment area around House of Parliament evacuated",
+                "entityType" : "Clip"
+              }
+            }
+          }
+        },
+        "mediaType" : "Video",
+        "section" : {
+          "name" : "UK",
+          "id" : "99116",
+          "uri" : "/news/uk",
+          "urlIdentifier" : "/news/uk"
+        },
+        "shortHeadline" : "'Get under cover now!'",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "The moment the area around the Houses of Parliament evacuated following reports of shots fired.",
+        "title" : "BBC News - Moment area around Houses of Parliament evacuated",
+        "type" : "MAP",
+        "workerCallingCard" : "app063.back.live.cwwtf.local-59"
+      }, {
+        "assetId" : "39351280",
+        "assetUri" : "/news/uk-39351280",
+        "firstCreated" : "2017-03-22T15:33:11+00:00",
+        "headline" : "London attack: Pictures from Westminster terror attack",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-03-23T00:31:41+00:00",
+        "overtypedHeadline" : "In pictures: 'Terrorist incident'",
+        "section" : {
+          "name" : "UK",
+          "id" : "99116",
+          "uri" : "/news/uk",
+          "urlIdentifier" : "/news/uk"
+        },
+        "shortHeadline" : "In pictures: Terror attack on Westminster",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "Four people, including a police officer and an attacker, are dead and 40 others have been injured in a terror attack in Westminster.",
+        "title" : "BBC News - London attack: Pictures from Westminster terror attack",
+        "type" : "PGL",
+        "workerCallingCard" : "app135.back.live.telhc.local-59"
+      }, {
+        "assetId" : "39351842",
+        "assetUri" : "/news/uk-39351842",
+        "firstCreated" : "2017-03-22T15:47:04+00:00",
+        "hasShortForm" : false,
+        "headline" : "London attack: 'A policeman was on the floor' - witness accounts",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-03-22T21:30:12+00:00",
+        "media" : {
+          "images" : {
+            "body" : {
+              "95265549" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/1715C/production/_95265549_038623242.jpg",
+                "altText" : "An armed police officer stands guard near Westminster Bridge",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "95271878" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/15709/production/_95271878_hi038623037.jpg",
+                "altText" : "A woman ducks under a police tape after an incident on Westminster Bridge",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Reuters"
+              },
+              "95271881" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/4981/production/_95271881_hi038623222.jpg",
+                "altText" : "Armed police respond outside Parliament",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Reuters"
+              },
+              "95271884" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/BEB1/production/_95271884_038623647.jpg",
+                "altText" : "Emergency services staff provide medical attention close to the Houses of Parliament in London",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AP"
+              },
+              "95272938" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/147D7/production/_95272938_038623458.jpg",
+                "altText" : "Armed police react following major incidents outside the Houses of Parliament in central London",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "EPA"
+              },
+              "95272942" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/615F/production/_95272942_hi038625534.jpg",
+                "altText" : "Firearms Incident Takes Place Outside Parliament",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "95272943" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/886F/production/_95272943_hi038625534.jpg",
+                "altText" : "Firearms Incident Takes Place Outside Parliament",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "95272947" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/124AF/production/_95272947_038626272.jpg",
+                "altText" : "An injured member of the public is escorted from the scene",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "95273990" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/26D1/production/_95273990_f38e491e-9b5f-4b06-88ae-e2797ecd37cc.jpg",
+                "altText" : "Westminster Bridge",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "95277321" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/3059/production/_95277321_481e26d6-70bc-42c9-9bd3-d02869b0dcfa.jpg",
+                "altText" : "Car crashed into railings",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AP"
+              },
+              "95277323" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/7E79/production/_95277323_1e4ad08b-addd-47b7-ac5b-0cc569d4f2cc.jpg",
+                "altText" : "London attack",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AFP/Getty Images"
+              }
+            },
+            "index" : {
+              "95277317" : {
+                "height" : 1152,
+                "width" : 2048,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/116D1/production/_95277317_mediaitem95277316.jpg",
+                "altText" : "Man in wheelchair",
+                "copyrightHolder" : "Getty Images"
+              }
+            }
+          }
+        },
+        "overtypedHeadline" : "'We saw a policeman on floor'",
+        "section" : {
+          "name" : "UK",
+          "id" : "99116",
+          "uri" : "/news/uk",
+          "urlIdentifier" : "/news/uk"
+        },
+        "shortHeadline" : "'We saw a policeman down on the floor'",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "Four people, including an armed police officer, have died in a terrorist incident near the Houses of Parliament.",
+        "title" : "BBC News - London attack: 'A policeman was on the floor' - witness accounts",
+        "type" : "STY",
+        "workerCallingCard" : "app135.back.live.telhc.local-61"
+      }, {
+        "assetId" : "39356436",
+        "assetUri" : "/news/uk-politics-39356436",
+        "firstCreated" : "2017-03-22T16:30:10+00:00",
+        "hasShortForm" : false,
+        "headline" : "London attack: Witness 'saw bodies' after Westminster incident",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-03-22T16:37:10+00:00",
+        "media" : {
+          "images" : {
+            "index" : {
+              "95273208" : {
+                "height" : 575,
+                "width" : 1024,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/1396D/production/_95273208_p04xp6dk.jpg",
+                "altText" : "Steve Voake.",
+                "copyrightHolder" : "BBC"
+              }
+            }
+          },
+          "videos" : {
+            "primary" : {
+              "39356438" : {
+                "externalId" : "p04xp4w7",
+                "caption" : "Steve Voake, eyewitness: \"I tried to stop people coming on to the bridge\"",
+                "entityType" : "Clip"
+              }
+            }
+          }
+        },
+        "mediaType" : "Video",
+        "overtypedHeadline" : "Witness 'saw body in water'",
+        "section" : {
+          "name" : "UK Politics",
+          "id" : "99207",
+          "uri" : "/news/politics",
+          "urlIdentifier" : "/news/politics"
+        },
+        "shortHeadline" : "Witness describes scene on bridge",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "Steve Voake was on Westminster Bridge when a car mowed down pedestrians.",
+        "title" : "BBC News - London attack: Witness 'saw bodies' after Westminster incident",
+        "type" : "MAP",
+        "workerCallingCard" : "app144.back.live.telhc.local-56"
+      } ]
+    }, {
+      "type" : "related-hypers",
+      "items" : [ {
+        "assetId" : "39357789",
+        "assetUri" : "/news/uk-politics-39357789",
+        "firstCreated" : "2017-03-22T16:12:33+00:00",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-03-24T13:54:53+00:00",
+        "section" : {
+          "name" : "UK Politics",
+          "id" : "99207",
+          "uri" : "/news/politics",
+          "urlIdentifier" : "/news/politics"
+        },
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "title" : "London terror attack",
+        "type" : "HYP",
+        "workerCallingCard" : "app144.back.live.telhc.local-59"
+      } ]
+    } ],
+    "options" : {
+      "allowRightHandSide" : true,
+      "allowRelatedStoriesBox" : true,
+      "includeComments" : false,
+      "isIgorSeoTagsEnabled" : false,
+      "hasNewsTracker" : false,
+      "isFactCheck" : false,
+      "allowAdvertising" : true,
+      "hasContentWarning" : false,
+      "allowDateStamp" : true,
+      "allowHeadline" : true,
+      "isKeyContent" : false,
+      "allowPrintingSharingLinks" : true,
+      "isBreakingNews" : false,
+      "suitableForSyndication" : true
+    },
+    "language" : "en-gb",
+    "id" : "http://www.bbc.co.uk/asset/f0b5c581-1030-484c-a064-68a9a6051e21",
+    "assetUri" : "/news/uk-39355940",
+    "assetId" : "39355940",
+    "headline" : "London attack: Two killed in Westminster 'terror' incident",
+    "shortHeadline" : "Two killed in Westminster 'terror' attack",
+    "section" : {
+      "name" : "UK",
+      "id" : "99116",
+      "uri" : "/news/uk",
+      "urlIdentifier" : "/news/uk"
+    },
+    "site" : {
+      "name" : "BBC News",
+      "code" : "news-v6",
+      "urlIdentifier" : "/news",
+      "frontPageUri" : "/news/front_page"
+    },
+    "workerCallingCard" : "app057.back.live.cwwtf.local-61",
+    "iStatsCounterName" : "news.uk.story.39355940.page"
+  } ]
+}

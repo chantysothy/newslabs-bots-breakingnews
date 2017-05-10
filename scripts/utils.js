@@ -17,7 +17,8 @@ function getCliOptions() {
     var optionDefinitions = [
         { "name": "aws_profile", "type": String },
         { "name": "bbc_bastion", "type": Boolean, "default": false },
-        { "name": "lambda_name", "type": String, "default": false }
+        { "name": "lambda_name", "type": String, "default": false },
+        { "name": "event",       "type": String }
     ];
     return commandLineArgs( optionDefinitions );
 }
@@ -27,7 +28,8 @@ function authenticate() {
     return new Promise( ( resolve, reject ) => {
 
         function addOptionsToEnvVars( options ) {
-            process.env.LAMBDA_NAME = options.lambda_name;
+            process.env.LAMBDA_NAME  = options.lambda_name;
+            process.env.LAMBDA_EVENT = options.event;
         }
 
         const options = getCliOptions();
@@ -219,20 +221,30 @@ function addValueToLambdaConfig ( property, value ) {
 
     const config = getLambdaConfigFile( process.env.LAMBDA_NAME );
     config[ property ] = value;
-    fs.writeFileSync( getLambdaFilePath( process.env.LAMBDA_NAME ), JSON.stringify( config, null, " " ) );
+    fs.writeFileSync( getLambdaConfigFilePath( process.env.LAMBDA_NAME ), JSON.stringify( config, null, " " ) );
 
 }
 
 function getLambdaConfigFile() {
 
-    return JSON.parse( fs.readFileSync( getLambdaFilePath( process.env.LAMBDA_NAME ) ) );
+    return JSON.parse( fs.readFileSync( getLambdaConfigFilePath() ) );
 
 }
 
-function getLambdaFilePath( lambdaName ) {
+function getLambdaConfigFilePath() {
 
-    return `${process.cwd()}/${lambdaName}.lambdaConfig.json`;
+    return `${process.cwd()}/${process.env.LAMBDA_NAME}.lambdaConfig.json`;
 
+}
+
+function getLambdaFilePath() {
+
+    return `${process.cwd()}/${process.env.LAMBDA_NAME}.js`;
+
+}
+
+function getLambdaHandler( handler ) {
+    return process.env.LAMBDA_NAME + "." + handler;
 }
 
 module.exports = {
@@ -240,7 +252,9 @@ module.exports = {
     "authenticate": authenticate,
     "copyAllFilesInTmpDir": copyAllFilesInTmpDir,
     "getLambdaConfigFile": getLambdaConfigFile,
+    "getLambdaConfigFilePath": getLambdaConfigFilePath,
     "getLambdaFilePath": getLambdaFilePath,
+    "getLambdaHandler": getLambdaHandler,
     "pruneNpmModules": pruneNpmModules,
     "setRegion": setRegion,
     "zipFiles": zipFiles

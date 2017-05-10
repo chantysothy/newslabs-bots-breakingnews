@@ -10,20 +10,23 @@ function createLambda( zipFilePath ) {
 
     console.log( "Deploying zip to Lambda..." );
 
-    const config = utils.getLambdaConfigFile( process.env.LAMBDA_NAME );
+    const config = utils.getLambdaConfigFile();
 
     var lambda = new AWS.Lambda();
 
     var params = {
         "FunctionName": config.name,
         "Description": config.description,
+        "Environment": {
+            "Variables": config.environmentVariables
+        },
         "Publish": true,
         "Code": {
             "ZipFile": fs.readFileSync( zipFilePath )
         },
         "Runtime":    config.runtime,
         "Role":       config.roleArn,
-        "Handler":    config.handler,
+        "Handler":    utils.getLambdaHandler( config.handler ),
         "MemorySize": config.memorySize,
         "Timeout":    config.timeout
     };
@@ -43,12 +46,12 @@ function createRoleForLambda() {
 
     return new Promise( ( resolve, reject ) => {
 
-        const config = utils.getLambdaConfigFile( process.env.LAMBDA_NAME );
+        const config = utils.getLambdaConfigFile();
 
         const roleName = `${config.name}Role`;
 
         if ( ( typeof config.roleArn === "string" ) && ( config.roleArn !== "" ) ) {
-            console.log( `${roleName} already defined in the file "${utils.getLambdaFilePath( process.env.LAMBDA_NAME )}.`);
+            console.log( `${roleName} already defined in the file "${utils.getLambdaConfigFilePath()}.`);
             resolve();
             return;
         }
@@ -121,6 +124,7 @@ function createRoleForLambda() {
             } else {
 
                 console.log( roleName + " already exists in your AWS account.");
+                utils.addValueToLambdaConfig( "roleArn", data.Role.Arn );
                 resolve();
 
             }

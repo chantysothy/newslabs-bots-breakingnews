@@ -19,7 +19,7 @@ const sendOptions = {
 	                	"cpsId": cpsId
 					}
 				}]
-			});
+			}).catch( console.log );
 
 		});
 
@@ -37,7 +37,7 @@ const sendOptions = {
                 	"cpsId": cpsId
 				}
 			}]
-		});
+		}).catch( console.log );
 
 	}
 
@@ -51,6 +51,6 @@ exports.handler = function ( event, context, callback ) {
 
 		sendOptions[ event.message.type ]( event.subscriber, event.cpsId, event.message.content );
 
-	});
+	}).catch( console.log );
 
 }

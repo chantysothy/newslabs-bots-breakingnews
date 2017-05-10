@@ -7,6 +7,23 @@ const getSecrets            = require( "./lib/getSecrets" );
 const MessengerClient       = require( "./lib/messengerClient" );
 const removeOldBreakingNews = require( "./removeOldBreakingNews" );
 
+
+function fakeBreakingNews () {
+
+	// empty DB
+	// fake ContentStore
+	// Push content v1 into fake ContentStore ( title and summary )
+	// Send message event to queueConsumer
+	// People sign up
+	// Push content v2 into fake ContentStore ( 4 paras )
+	// Send message event to queueConsumer
+	// Push content v3 into fake ContentStore ( few images )
+	// Send message event to queueConsumer
+	// Push content v4 into fake ContentStore ( more images )
+	// Send message event to queueConsumer
+
+}
+
 function setupGetStartedPage() {
 
 	getSecrets( "messenger" )
@@ -68,19 +85,19 @@ function subscribe() {
 		};
 
 		require( "./messengerService" ).handler( 
-				fakeMessengerEvent,
-				{
-					"done": () => {
-						// call this to tell lambda you're finished
-					}
-				},
-				function callback( err, data ) {
-					// Pass data into here that will be returned to the Lambda callee.
-					console.log( err );
-					console.log( data );
-					resolve();
+			fakeMessengerEvent,
+			{
+				"done": () => {
+					// call this to tell lambda you're finished
 				}
-			);
+			},
+			function callback( err, data ) {
+				// Pass data into here that will be returned to the Lambda callee.
+				console.log( err );
+				console.log( data );
+				resolve();
+			}
+		);
 
 	});
 
@@ -455,17 +472,30 @@ function processQueueWorker () {
 
 }
 
+function runRemoveOldBreakingNewsLambda() {
+	return new Promise( ( resolve, reject ) => {
+		removeOldBreakingNews.handler(
+			{},
+			{
+				"done": () => {
+					resolve();
+				}
+			}
+		);
+	});
+}
+
 utils.authenticate()
-    .then( setupGetStartedPage )
+    // .then( setupGetStartedPage )
     // .then( removeGetStartedPage )
     // .then( customQuery )
     // .then( subscribe )
     // .then( unSubscribe )
-    // .then( listUsers )
+    // .then( runRemoveOldBreakingNewsLambda )
+    .then( listUsers )
     // .then( askForHelp )
     // .then( getMsgFromQueue )
     // .then( createTestDataForRemoveOldBreakingNews )
-    // .then( removeOldBreakingNews )
-    // .then( listStories )
+    .then( listStories )
     // .then( processQueueWorker )
     .catch( console.log );

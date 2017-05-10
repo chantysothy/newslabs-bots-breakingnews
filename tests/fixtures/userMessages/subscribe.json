@@ -1,0 +1,25 @@
+{
+	"context": {
+		"http-method": "POST"
+	},
+	"params": {
+		"querystring": {
+			"hub.mode": "subscribe",
+			"hub.verify_token": "brokenflowers2005",
+			"hub.challenge": "howdy"
+		}
+	},
+	"body-json": {
+		"object": "page",
+		"entry": [{
+			"messaging": [{
+				"sender": {
+					"id": "1317577321651234"
+				},
+				"postback": {
+					"payload": "{\"type\":\"SUBSCRIBE\",\"cpsId\":\"news/uk-39355940\"}"
+				}
+			}]
+		}]
+	}
+}

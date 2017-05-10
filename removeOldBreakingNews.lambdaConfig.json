@@ -4,7 +4,10 @@
  "description": "Periodically called to remove CPS stories that are no longer breaking.",
  "runtime": "nodejs6.10",
  "timeout": 3,
- "handler": "messengerService.handler",
+ "environmentVariables": {
+ 	"NODE_ENV": "test"
+ },
+ "handler": "handler",
  "userDefinedCodeToDeploy": [
   "lib/getDbCreds.js",
   "lib/getUsersSubscribedToCpsId.js",

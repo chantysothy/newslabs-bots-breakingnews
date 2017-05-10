@@ -51,16 +51,18 @@ function getOldBreakingNewsStories() {
 
 		        connection.query( query, function ( err, results, fields ) {
 		            if ( err ) {
+		            	console.log( err );
 		            	reject( err );
 		            } else {
 		            	const cpsIds = results.map( row => row.cpsId );
+		            	console.log( cpsIds );
 		            	resolve( cpsIds );
 		            }
 		        });
 
 		        connection.end();
 
-		    });
+		    }).catch( reject );
 
     });
 
@@ -101,11 +103,12 @@ function removeUserEntries ( cpsIds ) {
 
 }
 
-module.exports = function removeOldBreakingNews() {
+exports.handler = function removeOldBreakingNews( {}, context ) {
 
     getOldBreakingNewsStories()
     	.then( removeUserEntries )
     	.then( removeNewsStories )
+    	.then( context.done )
     	.catch( console.log )
 
 }

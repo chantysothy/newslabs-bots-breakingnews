@@ -50,7 +50,7 @@ function displayStackOutputs() {
 
     return new Promise( ( resolve, reject ) => {
 
-        const config = utils.getLambdaConfigFile( process.env.LAMBDA_NAME );
+        const config = utils.getLambdaConfigFile();
 
         var cloudformation = new AWS.CloudFormation({apiVersion: '2010-05-15'});
 
@@ -87,7 +87,7 @@ function displayStackOutputs() {
 
 function checkStackStatus( consoledStackEventIds ) {
 
-    const config = utils.getLambdaConfigFile( process.env.LAMBDA_NAME );
+    const config = utils.getLambdaConfigFile();
 
     consoledStackEventIds = consoledStackEventIds || [];
 

@@ -8,7 +8,7 @@ utils.setRegion( AWS );
 function updateApiGateway () {
 	return new Promise( ( resolve, reject ) => {
 		
-		const config = utils.getLambdaConfigFile( process.env.LAMBDA_NAME );
+		const config = utils.getLambdaConfigFile();
 
     	var cloudformation = new AWS.CloudFormation({apiVersion: '2010-05-15'});
 

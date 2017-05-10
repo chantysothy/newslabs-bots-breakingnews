@@ -1,14 +1,20 @@
 {
- "memorySize": 128,
- "name": "breakingNewsQueueConsumer",
- "handler": "index.handler",
- "runtime": "nodejs6.10",
- "timeout": 3,
+ "memorySize": 256,
+ "name":       "breakingNewsQueueConsumer",
+ "handler":    "handler",
+ "runtime":    "nodejs6.10",
+ "timeout":    6,
+ "environmentVariables": {
+ 	"NODE_ENV": "test"
+ },
  "userDefinedCodeToDeploy": [
   "queueConsumer.js",
+  "settings.json",
   "lib/getContentStoreAsset.js",
   "lib/getDataToDetermineHowToUpdateUsers.js",
+  "lib/getDbCreds.js",
   "lib/getLatestUpdate.js",
+  "lib/getSecrets.js",
   "lib/storeNewVersionOfContent.js",
   "lib/sendUpdateViaWorkerLambda.js",
   "lib/getSummaryFromCpsAsset.js"
