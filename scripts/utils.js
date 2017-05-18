@@ -17,6 +17,9 @@ function getConfigOptions( options ) {
     if ( toolsConfig.useBbcBastion ) {
         options.bbc_bastion = true;
     }
+    if ( toolsConfig.awsProfile ) {
+        options.aws_profile = toolsConfig.awsProfile;
+    }
     return options;
 }
 
