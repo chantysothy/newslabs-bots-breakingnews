@@ -16,9 +16,10 @@ function setRegion( AWS ) {
 function getCliOptions() {
     var optionDefinitions = [
         { "name": "aws_profile", "type": String },
-        { "name": "bbc_bastion", "type": Boolean, "default": false },
-        { "name": "lambda_name", "type": String, "default": false },
-        { "name": "event",       "type": String }
+        { "name": "bbc_bastion", "type": Boolean, "defaultValue": false },
+        { "name": "lambda_name", "type": String,  "defaultValue": null },
+        { "name": "event",       "type": String },
+        { "name": "local",       "type": Boolean, "defaultValue": false }
     ];
     return commandLineArgs( optionDefinitions );
 }
@@ -30,6 +31,7 @@ function authenticate() {
         function addOptionsToEnvVars( options ) {
             process.env.LAMBDA_NAME  = options.lambda_name;
             process.env.LAMBDA_EVENT = options.event;
+            process.env.RUN_LAMBDA_LOCAL = options.local;
         }
 
         const options = getCliOptions();
