@@ -13,6 +13,13 @@ function setRegion( AWS ) {
     AWS.config.region = toolsConfig.region;
 }
 
+function getConfigOptions( options ) {
+    if ( toolsConfig.useBbcBastion ) {
+        options.bbc_bastion = true;
+    }
+    return options;
+}
+
 function getCliOptions() {
     var optionDefinitions = [
         { "name": "aws_profile", "type": String },
@@ -21,7 +28,9 @@ function getCliOptions() {
         { "name": "event",       "type": String },
         { "name": "local",       "type": Boolean, "defaultValue": false }
     ];
-    return commandLineArgs( optionDefinitions );
+    const cliOptions = commandLineArgs( optionDefinitions );
+    const optionsOverrided = getConfigOptions( cliOptions );
+    return optionsOverrided;
 }
 
 function authenticate() {
