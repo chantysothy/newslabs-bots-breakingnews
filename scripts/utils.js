@@ -8,14 +8,20 @@ const commandLineArgs = require( "command-line-args" );
 
 const toolsConfig     = require( `${process.cwd()}/toolsConfig.json` );
 
+let options = [];
+
 function setRegion( AWS ) {
     const toolsConfig = require( `${process.cwd()}/toolsConfig.json` );
     AWS.config.region = toolsConfig.region;
 }
 
+function getOptions() {
+    return options;
+}
+
 function getConfigOptions( options ) {
-    if ( toolsConfig.useBbcBastion ) {
-        options.bbc_bastion = true;
+    if ( toolsConfig.useBastion ) {
+        options.use_bastion = true;
     }
     if ( toolsConfig.awsProfile ) {
         options.aws_profile = toolsConfig.awsProfile;
@@ -26,10 +32,13 @@ function getConfigOptions( options ) {
 function getCliOptions() {
     var optionDefinitions = [
         { "name": "aws_profile", "type": String },
-        { "name": "bbc_bastion", "type": Boolean, "defaultValue": false },
+        { "name": "use_bastion", "type": Boolean, "defaultValue": false },
         { "name": "lambda_name", "type": String,  "defaultValue": null },
         { "name": "event",       "type": String },
-        { "name": "local",       "type": Boolean, "defaultValue": false }
+        { "name": "local",       "type": Boolean, "defaultValue": false },
+        { "name": "start_time",  "type": String },
+        { "name": "search",      "type": String },
+        { "name": "tail",        "type": Boolean, "default": false }
     ];
     const cliOptions = commandLineArgs( optionDefinitions );
     const optionsOverrided = getConfigOptions( cliOptions );
@@ -46,9 +55,9 @@ function authenticate() {
             process.env.RUN_LAMBDA_LOCAL = options.local;
         }
 
-        const options = getCliOptions();
+        options = getCliOptions();
 
-        if ( options.bbc_bastion ) {
+        if ( options.use_bastion ) {
 
             authenticateAgainstBastionService()
                 .then( () => {
@@ -265,6 +274,7 @@ module.exports = {
     "addValueToLambdaConfig": addValueToLambdaConfig,
     "authenticate": authenticate,
     "copyAllFilesInTmpDir": copyAllFilesInTmpDir,
+    "getOptions": getOptions,
     "getLambdaConfigFile": getLambdaConfigFile,
     "getLambdaConfigFilePath": getLambdaConfigFilePath,
     "getLambdaFilePath": getLambdaFilePath,
