@@ -21,7 +21,7 @@ function getLogName() {
 	const options = utils.getOptions();
 
 	if ( options.group_name ) {
-		return `/aws/lambda/${options.group_name}`
+		return options.group_name;
 	}
 
 	throw new Error("Unable to determine which log group name to use.");
@@ -50,7 +50,7 @@ function getLogs() {
 
 				resolve(
 					_.chain( data.logStreams )
-						.filter( stream => stream.logStreamName.includes( "[$LATEST]" ) )
+						// .filter( stream => stream.logStreamName.includes( "[$LATEST]" ) )
 						.map( "logStreamName" )
 						.value()
 				);
@@ -91,7 +91,7 @@ function formatLogEvent( msg ) {
 	const time = chalk.green( moment( splitted[ 0 ] ).format( dateFormat ) );
 	const text = msg.split( `${reqId}\t` )[ 1 ];
 
-	return `${time}\t${chalk.yellow(reqId)}\t${text}`;
+	return `${time}\t${chalk.yellow(reqId)}\t${text}\n\n`;
 
 };
 
@@ -100,6 +100,8 @@ function showLogs( logStreamNames ) {
     return new Promise( ( resolve, reject ) => {
 
     	console.log( "Requesting logs..." );
+
+    	console.log( "logStreamNames.length: " + logStreamNames.length );
 
     	const options = utils.getOptions();
 
@@ -138,6 +140,7 @@ function showLogs( logStreamNames ) {
 
 			if ( err ) {
 				reject( err );
+				return;
 			}
 			if ( data.events ) {
 	        	data.events.forEach( ( e ) => {
