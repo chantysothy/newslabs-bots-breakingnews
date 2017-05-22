@@ -11,16 +11,30 @@ const toolsConfig = require( `${process.cwd()}/toolsConfig.json` );
 
 AWS.config.region = toolsConfig.region;
 
+function getLogName() {
+
+	if ( process.env.LAMBDA_NAME !== "null" ) {
+		const config = utils.getLambdaConfigFile();
+		return `/aws/lambda/${config.name}`;
+	}
+
+	const options = utils.getOptions();
+
+	if ( options.group_name ) {
+		return `/aws/lambda/${options.group_name}`
+	}
+
+	throw new Error("Unable to determine which log group name to use.");
+}
+
 function getLogs() {
 
 	return new Promise( ( resolve, reject ) => {
 
-		const config = utils.getLambdaConfigFile();
-
 		const cloudwatchlogs = new AWS.CloudWatchLogs();
 
 		const params = {
-			"logGroupName": `/aws/lambda/${config.name}`,
+			"logGroupName": getLogName(),
 			"descending":   true,
 			"limit":        50,
 			"orderBy":      "LastEventTime"
@@ -91,10 +105,8 @@ function showLogs( logStreamNames ) {
 
 		const cloudwatchlogs = new AWS.CloudWatchLogs();
 		
-		const config = utils.getLambdaConfigFile();
-		
 		const params = {
-			"logGroupName":   `/aws/lambda/${config.name}`,
+			"logGroupName":   getLogName(),
 			"interleaved":    true,
 			"logStreamNames": logStreamNames
 		};

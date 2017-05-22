@@ -38,7 +38,8 @@ function getCliOptions() {
         { "name": "local",       "type": Boolean, "defaultValue": false },
         { "name": "start_time",  "type": String },
         { "name": "search",      "type": String },
-        { "name": "tail",        "type": Boolean, "default": false }
+        { "name": "tail",        "type": Boolean, "default": false },
+        { "name": "group_name",  "type": String }
     ];
     const cliOptions = commandLineArgs( optionDefinitions );
     const optionsOverrided = getConfigOptions( cliOptions );
