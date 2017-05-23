@@ -48,6 +48,10 @@ function getLogs() {
 
 			} else {
 
+				if ( data.logStreams.length === 0 ) {
+					reject( "No logs exist yet." );
+				}
+
 				resolve(
 					_.chain( data.logStreams )
 						// .filter( stream => stream.logStreamName.includes( "[$LATEST]" ) )
