@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "",
   "main": "./index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests --reporter spec"
+  },
   "dependencies": {
     "lodash": "4.17.4",
     "mysql":  "2.13",
@@ -17,6 +20,8 @@
     "fs-extra":           "latest",
     "node-cmd":           "latest",
     "xml2js":             "0.4.17",
-    "moment":             "latest"
+    "moment":             "latest",
+    "mocha":              "*",
+    "chai":               "*"
   }
 }
