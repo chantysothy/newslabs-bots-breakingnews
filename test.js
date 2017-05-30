@@ -7,23 +7,6 @@ const getSecrets            = require( "./lib/getSecrets" );
 const MessengerClient       = require( "./lib/messengerClient" );
 const removeOldBreakingNews = require( "./removeOldBreakingNews" );
 
-
-function fakeBreakingNews () {
-
-	// empty DB
-	// fake ContentStore
-	// Push content v1 into fake ContentStore ( title and summary )
-	// Send message event to queueConsumer
-	// People sign up
-	// Push content v2 into fake ContentStore ( 4 paras )
-	// Send message event to queueConsumer
-	// Push content v3 into fake ContentStore ( few images )
-	// Send message event to queueConsumer
-	// Push content v4 into fake ContentStore ( more images )
-	// Send message event to queueConsumer
-
-}
-
 function setupGetStartedPage() {
 
 	getSecrets( "messenger" )
@@ -154,7 +137,7 @@ function unSubscribe() {
 
 function listUsers() {
 
-	return new Promise( ( resolve ) => {
+	return new Promise( ( resolve, reject ) => {
 
 		getDbCreds()
     		.then( ( dbCreds ) => {
@@ -168,7 +151,7 @@ function listUsers() {
 		        connection.query(h, function (error, results, fields) {
 
 		            if (error) {
-		                console.log( error );
+		                reject( error );
 		            } else {
 		            	process.stdout.write(`\n\n| ${_.padEnd( '', 119, '-' )} |\n`);
 		            	process.stdout.write(`| ${_.padEnd( 'usersFollowingBreakingNewsStories', 119 )} |\n`);
@@ -188,7 +171,8 @@ function listUsers() {
 
 		        connection.end();
 
-		    });
+		    })
+		    .catch( reject );
 
     });
 
@@ -257,7 +241,7 @@ function customQuery() {
 		        const i = "DELETE FROM breakingNewsStoryContentSentToUser";
 		        const j = "SELECT * FROM breakingNewsStoryContentSentToUser WHERE created <= subdate(current_date, INTERVAL 24 HOUR)"
 
-		        connection.query(j, function (error, results, fields) {
+		        connection.query(i, function (error, results, fields) {
 
 		            if (error) {
 		                console.log( error );
