@@ -60,6 +60,8 @@ function authenticate() {
 
         if ( options.use_bastion ) {
 
+            console.log( "Authenticating via bastion servers..." );
+
             authenticateAgainstBastionService()
                 .then( () => {
                     addOptionsToEnvVars( options );
@@ -70,6 +72,8 @@ function authenticate() {
         }
 
         if ( options.aws_profile ) {
+
+            console.log( "Authenticating via local AWS profile..." );
 
             process.env.AWS_PROFILE = options.aws_profile;
             addOptionsToEnvVars( options );
