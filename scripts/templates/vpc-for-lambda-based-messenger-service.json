@@ -1,0 +1,179 @@
+
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+
+  "Description" : "VPC for hosting Lambdas.",
+
+  "Parameters" : {
+
+  },
+
+  "Resources" : {
+
+    "BreakingNewsVpc" : {
+      "Type" : "AWS::EC2::VPC",
+      "Properties" : {
+        "CidrBlock" : "10.0.0.0/26",
+        "EnableDnsHostnames": "true",
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNews"}
+        ]
+      }
+    },
+
+    "BreakingNewsSubnetPrivateA" : {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "AvailabilityZone": "eu-west-1a",
+        "VpcId" : { "Ref" : "BreakingNewsVpc" },
+        "CidrBlock" : "10.0.0.0/28",
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNewsSubnetPrivateA"}
+        ]
+      }
+    },
+
+    "BreakingNewsSubnetPrivateB" : {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "AvailabilityZone": "eu-west-1b",
+        "VpcId" : { "Ref" : "BreakingNewsVpc" },
+        "CidrBlock" : "10.0.0.16/28",
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNewsSubnetPrivateB"}
+        ]
+      }
+    },
+
+    "BreakingNewsSubnetPublicA" : {
+      "Type" : "AWS::EC2::Subnet",
+      "Properties" : {
+        "AvailabilityZone": "eu-west-1a",
+        "VpcId" : { "Ref" : "BreakingNewsVpc" },
+        "CidrBlock" : "10.0.0.32/28",
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNewsSubnetPublicA"}
+        ]
+      }
+    },
+
+    "BreakingNewsInternetGateway" : {
+      "Type" : "AWS::EC2::InternetGateway",
+      "Properties" : {
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNewsInternetGateway"}
+        ]
+      }
+    },
+
+    "AttachGateway" : {
+       "Type" : "AWS::EC2::VPCGatewayAttachment",
+       "Properties" : {
+         "VpcId" : { "Ref" : "BreakingNewsVpc" },
+         "InternetGatewayId" : { "Ref" : "BreakingNewsInternetGateway" }
+       }
+    },
+
+    "BreakingNewsRouteTablePrivate" : {
+      "Type" : "AWS::EC2::RouteTable",
+      "Properties" : {
+        "VpcId" : { "Ref" : "BreakingNewsVpc" },
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNewsRouteTablePrivate"}
+        ]
+      }
+    },
+
+    "BreakingNewsRouteTablePublic" : {
+      "Type" : "AWS::EC2::RouteTable",
+      "Properties" : {
+        "VpcId" : { "Ref" : "BreakingNewsVpc" },
+        "Tags" : [
+          {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} },
+          {"Key" : "Name",        "Value" : "BreakingNewsRouteTablePublic"}
+        ]
+      }
+    },
+
+    "InternetGatewayRoute" : {
+      "Type" : "AWS::EC2::Route",
+      "DependsOn" : "AttachGateway",
+      "Properties" : {
+        "RouteTableId" : { "Ref" : "BreakingNewsRouteTablePublic" },
+        "DestinationCidrBlock" : "0.0.0.0/0",
+        "GatewayId" : { "Ref" : "BreakingNewsInternetGateway" }
+      }
+    },
+
+    "SubnetRouteTableAssociationPrivateA" : {
+      "Type" : "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties" : {
+        "SubnetId" : { "Ref" : "BreakingNewsSubnetPrivateA" },
+        "RouteTableId" : { "Ref" : "BreakingNewsRouteTablePrivate" }
+      }
+    },
+
+    "SubnetRouteTableAssociationPrivateB" : {
+      "Type" : "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties" : {
+        "SubnetId" : { "Ref" : "BreakingNewsSubnetPrivateB" },
+        "RouteTableId" : { "Ref" : "BreakingNewsRouteTablePrivate" }
+      }
+    },
+
+    "SubnetRouteTableAssociationPublicA" : {
+      "Type" : "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties" : {
+        "SubnetId" : { "Ref" : "BreakingNewsSubnetPublicA" },
+        "RouteTableId" : { "Ref" : "BreakingNewsRouteTablePublic" }
+      }
+    },
+
+    "BreakingNewseip": {
+      "Type" : "AWS::EC2::EIP",
+      "Properties" : {
+        "Domain" : "vpc"
+      }
+    },
+
+    "BreakingNewsNatGateway": {
+      "Type" : "AWS::EC2::NatGateway",
+      "DependsOn": "BreakingNewsSubnetPublicA",
+      "Properties" : {
+        "AllocationId" : { "Fn::GetAtt" : ["BreakingNewseip", "AllocationId"] },
+        "SubnetId" : { "Ref" : "BreakingNewsSubnetPublicA" }
+      }
+    },
+
+    "NatGatewayRouteA" : {
+      "Type" : "AWS::EC2::Route",
+      "DependsOn" : "BreakingNewsNatGateway",
+      "Properties" : {
+        "RouteTableId" : { "Ref" : "BreakingNewsRouteTablePrivate" },
+        "DestinationCidrBlock" : "0.0.0.0/0",
+        "NatGatewayId" : { "Ref" : "BreakingNewsNatGateway" }
+      }
+    },
+
+    "BreakingNewsSubNetGroup": {
+       "Type" : "AWS::RDS::DBSubnetGroup",
+       "Properties" : {
+          "DBSubnetGroupDescription" : "Collection of private subnets for an RDS instance to run on.",
+          "SubnetIds" : [
+            { "Ref" : "BreakingNewsSubnetPrivateA" },
+            { "Ref" : "BreakingNewsSubnetPrivateB" }
+          ],
+          "Tags" : [ {"Key" : "Name", "Value" : "BreakingNewsSubNetGroup"} ]
+       }
+    }
+
+  }
+
+}
+
