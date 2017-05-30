@@ -6,7 +6,13 @@ const utils = require( "./utils" );
 
 function getLambdaEventFile () {
 
-    return JSON.parse( fs.readFileSync( `${process.cwd()}/${process.env.LAMBDA_EVENT}`, "utf8" ) );
+	const path = `${process.cwd()}/${process.env.LAMBDA_EVENT}`;
+
+	if ( fs.existsSync( path ) ) {
+    	return JSON.parse( fs.readFileSync( path, "utf8" ) );
+    } else {
+    	return {};
+    }
 
 }
 
@@ -97,9 +103,9 @@ function runDeployedLamda () {
 			if ( data.LogResult ) {
 				console.log( "Status code: " + data.StatusCode );
 				console.log( "Payload: " + data.Payload );
-				console.log( Buffer.from( data.LogResult, "base64" ) );
+				console.log( Buffer.from( data.LogResult, "base64" ).toString() );
 			}
-			console.log( data );
+			// console.log( data );
 		}
 	});
 
