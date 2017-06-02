@@ -9,7 +9,7 @@ AWS.config.region = projectConfig.region;
 function commandLineArgsAreValid () {
 
 	let varName = process.env.VAR_NAME;
-	return ( varName !== null ) && ( projectConfig.environmentVariables[ varName ] !== undefined );
+	return ( varName !== null ) && ( projectConfig.environmentVariables[ varName ] !== undefined ) && process.env.ENV;
 
 }
 

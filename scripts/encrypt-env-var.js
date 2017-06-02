@@ -9,7 +9,7 @@ AWS.config.region = projectConfig.region;
 
 function commandLineArgsAreValid () {
 
-	return process.env.VAR_NAME && process.env.VAR_VALUE && process.env.ENV;
+	return process.env.VAR_NAME && process.env.VAR_VALUE;
 
 }
 
@@ -61,7 +61,7 @@ function validateAndEnsure () {
 			});
 
 		} else {
-			reject( "ERROR: no variable name, variable value or env param defined. Please use the `--var_name`, `--var_value` and `--env` options to state a var to encrypt" );
+			reject( "ERROR: no variable name or variable value param defined. Please use the `--var_name` and `--var_value` options to state a var to encrypt" );
 		}
 
 	});
