@@ -23,6 +23,7 @@
     "moment":             "latest",
     "mocha":              "*",
     "chai":               "*",
-    "glob-fs":            "0.1.*"
+    "glob-fs":            "0.1.*",
+    "prompt":             "1.0.*"
   }
 }

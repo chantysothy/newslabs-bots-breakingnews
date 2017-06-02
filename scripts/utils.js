@@ -7,9 +7,76 @@ const cmd             = require( "node-cmd" );
 const commandLineArgs = require( "command-line-args" );
 const glob = require('glob-fs')({ gitignore: true });
 
-const projectConfig = getProjectConfig();
+let options = getCliOptions();
 
-let options = [];
+var projectConfigFileName;
+
+addOptionsToEnvVars( options );
+
+function getCliOptions() {
+
+    var optionDefinitions = [
+        { "name": "aws_profile", "type": String },
+        { "name": "use_bastion", "type": Boolean, "defaultValue": false },
+        { "name": "lambda_name", "type": String,  "defaultValue": null },
+        { "name": "event",       "type": String },
+        { "name": "local",       "type": Boolean, "defaultValue": false },
+        { "name": "start_time",  "type": String },
+        { "name": "search",      "type": String },
+        { "name": "tail",        "type": Boolean, "default": false },
+        { "name": "group_name",  "type": String },
+        { "name": "env",         "type": String,  "defaultValue": "live" },
+        { "name": "var_name",    "type": String },
+        { "name": "var_value",   "type": String }
+    ];
+    
+    const cliOptions       = commandLineArgs( optionDefinitions );
+    projectConfigFileName  = chooseProjectFile( listEnvFiles(), cliOptions.env );
+    const optionsOverrided = getConfigOptions( cliOptions );
+    
+    return optionsOverrided;
+
+}
+
+function getConfigOptions( options ) {
+    const projectConfig = getProjectConfig();
+    if ( projectConfig.useBastion ) {
+        options.use_bastion = true;
+    }
+    if ( projectConfig.awsProfile ) {
+        options.aws_profile = projectConfig.awsProfile;
+    }
+    return options;
+}
+
+function getProjectConfig() {
+    return require( getProjectConfigFilePath() );
+}
+
+function getProjectConfigFilePath () {
+    return `${process.cwd()}/${ projectConfigFileName }`;
+}
+
+function chooseProjectFile( envFiles, env ) {
+    if ( env in envFiles ) {
+        return envFiles[ env ];
+    } else {
+        throw new Error("`--env` parameter value has no matching collie file");
+    }
+}
+
+function addOptionsToEnvVars( options ) {
+    process.env.LAMBDA_NAME  = options.lambda_name;
+    process.env.LAMBDA_EVENT = options.event;
+    process.env.RUN_LAMBDA_LOCAL = options.local;
+    if ( options.var_name ) {
+        process.env.VAR_NAME = options.var_name;
+    }
+    if ( options.var_value ) {
+        process.env.VAR_VALUE = options.var_value;
+    }
+    process.env.ENV = options.env;
+}
 
 function setRegion( AWS ) {
     const projectConfig = getProjectConfig();
@@ -17,16 +84,6 @@ function setRegion( AWS ) {
 }
 
 function getOptions() {
-    return options;
-}
-
-function getConfigOptions( options ) {
-    if ( projectConfig.useBastion ) {
-        options.use_bastion = true;
-    }
-    if ( projectConfig.awsProfile ) {
-        options.aws_profile = projectConfig.awsProfile;
-    }
     return options;
 }
 
@@ -52,61 +109,16 @@ function listEnvFiles() {
     return envFiles;
 }
 
-function getProjectConfig() {
-    return require( getProjectConfigFilePath() );
-}
-
-function getProjectConfigFilePath () {
-    return `${process.cwd()}/${listEnvFiles().live}`;
-}
-
-function getCliOptions() {
-    var optionDefinitions = [
-        { "name": "aws_profile", "type": String },
-        { "name": "use_bastion", "type": Boolean, "defaultValue": false },
-        { "name": "lambda_name", "type": String,  "defaultValue": null },
-        { "name": "event",       "type": String },
-        { "name": "local",       "type": Boolean, "defaultValue": false },
-        { "name": "start_time",  "type": String },
-        { "name": "search",      "type": String },
-        { "name": "tail",        "type": Boolean, "default": false },
-        { "name": "group_name",  "type": String },
-        { "name": "env",         "type": String,  "defaultValue": "live" },
-        { "name": "var_name",    "type": String },
-        { "name": "var_value",   "type": String }
-    ];
-    const cliOptions = commandLineArgs( optionDefinitions );
-    const optionsOverrided = getConfigOptions( cliOptions );
-    return optionsOverrided;
-}
-
 function authenticate() {
 
     return new Promise( ( resolve, reject ) => {
-
-        function addOptionsToEnvVars( options ) {
-            process.env.LAMBDA_NAME  = options.lambda_name;
-            process.env.LAMBDA_EVENT = options.event;
-            process.env.RUN_LAMBDA_LOCAL = options.local;
-            if ( options.var_name ) {
-                process.env.VAR_NAME = options.var_name;
-            }
-            if ( options.var_value ) {
-                process.env.VAR_VALUE = options.var_value;
-            }
-        }
-
-        options = getCliOptions();
 
         if ( options.use_bastion ) {
 
             console.log( "Authenticating via bastion servers..." );
 
             authenticateAgainstBastionService()
-                .then( () => {
-                    addOptionsToEnvVars( options );
-                    resolve();
-                });
+                .then( resolve );
             return;
 
         }
@@ -116,7 +128,6 @@ function authenticate() {
             console.log( "Authenticating via local AWS profile..." );
 
             process.env.AWS_PROFILE = options.aws_profile;
-            addOptionsToEnvVars( options );
             resolve();
             return;
 
@@ -132,6 +143,7 @@ function authenticateAgainstBastionService() {
 
     return new Promise( ( resolve, reject ) => {
 
+        const projectConfig = getProjectConfig();
         const certPath = path.resolve( projectConfig.bastionService.certPath );
         const requestOptions = {
             url: projectConfig.bastionService.endpoint,
@@ -337,6 +349,7 @@ module.exports = {
     "copyAllFilesInTmpDir": copyAllFilesInTmpDir,
     "getOptions": getOptions,
     "getProjectConfig": getProjectConfig,
+    "getProjectConfigFilePath": getProjectConfigFilePath,
     "getLambdaConfigFile": getLambdaConfigFile,
     "getLambdaConfigFilePath": getLambdaConfigFilePath,
     "getLambdaFilePath": getLambdaFilePath,
