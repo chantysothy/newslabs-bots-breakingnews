@@ -1,6 +1,6 @@
 var AWS                 = require( "aws-sdk" );
 const fs                = require( "fs" );
-const utils             = require( "./utils" );
+const utils             = require( "../utils" );
 
 const projectConfig = utils.getProjectConfig();
 
@@ -134,10 +134,13 @@ function createRoleForLambda() {
 
 }
 
-utils.authenticate()
-    .then( createRoleForLambda )
-    .then( utils.copyAllFilesInTmpDir )
-    .then( utils.pruneNpmModules )
-    .then( utils.zipFiles )
-    .then( createLambda )
-    .catch( console.log );
+module.exports = function init () {
+    console.log( "creating lambda..." );
+    createRoleForLambda()
+        .then( utils.copyAllFilesInTmpDir )
+        .then( utils.pruneNpmModules )
+        .then( utils.zipFiles )
+        .then( createLambda )
+        .catch( console.log );
+    
+}

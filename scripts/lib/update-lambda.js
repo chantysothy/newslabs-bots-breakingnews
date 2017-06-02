@@ -1,7 +1,7 @@
 const fs       = require( "fs" );
 const AWS      = require( "aws-sdk" );
 
-const utils    = require( "./utils" );
+const utils    = require( "../utils" );
 
 const projectConfig = utils.getProjectConfig();
 
@@ -75,9 +75,11 @@ function deployToLambda( zipFilePath ) {
 
 }
 
-utils.authenticate()
-    .then( utils.copyAllFilesInTmpDir )
-    .then( utils.pruneNpmModules )
-    .then( utils.zipFiles )
-    .then( deployToLambda )
-    .catch( console.log );
+module.exports = function createLambda () {
+    console.log( "Updating lambda..." );
+    utils.copyAllFilesInTmpDir()
+        .then( utils.pruneNpmModules )
+        .then( utils.zipFiles )
+        .then( deployToLambda )
+        .catch( console.log );
+};

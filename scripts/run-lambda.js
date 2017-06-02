@@ -50,8 +50,6 @@ function getLambdaHandler() {
 
 function runLocalLamda() {
 
-	console.log( "hi" );
-
 	return new Promise( ( resolve, reject ) => {
 
 		createFakeRunTimeRequirements().then( () => {
