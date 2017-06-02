@@ -1,0 +1,20 @@
+{
+ "bastionService": {
+  "endpoint": "https://wormhole.api.bbci.co.uk/account/060170161162/credentials",
+  "certPath": "/Users/maslet02/workspace/certs/dev.bbc.co.uk.pem",
+  "cloudServicesRoot": "/Users/maslet02/workspace/certs/cloudservicesroot.pem"
+ },
+ "region": "eu-west-1",
+ "useBastion": true,
+ "environmentVariables": {
+  "NODE_ENV": "live",
+  "CONTENT_STORE_HOST_NAME": "content-api-a127.api.bbci.co.uk",
+  "CONTENT_STORE_PATH": "/asset/${cpsAssetId}?api_key=${apigeeSecret}",
+  "APIGEE_SECRET": "AQECAHgTnPXcypE+S2ivqwKZjAYB1RzlVIGtyTMgyv2/zd3A6gAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJZlNxauddJSVJsufgIBEIA7BW+CSIcjPdo7CHrVeSWGQ58KP6uT+9l1xGJoO4WWSF2izIIs+/8qhu09hkFiRoDQxCdEjdN/SMbrZCk=",
+  "DB_PASSWORD": "AQECAHgTnPXcypE+S2ivqwKZjAYB1RzlVIGtyTMgyv2/zd3A6gAAAGkwZwYJKoZIhvcNAQcGoFowWAIBADBTBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDsDXsk72j90W3h+9gIBEIAmvwYjPYamBV8jeJuJRiFHBZsv1N0Qv1u5MWAjIMKEcqrb3RSfjnw=",
+  "DB_HOST": "breakingnewsbot.c3yszev3wvsh.eu-west-1.rds.amazonaws.com",
+  "MESSENGER_PAGEACCESSTOKEN": "AQECAHgTnPXcypE+S2ivqwKZjAYB1RzlVIGtyTMgyv2/zd3A6gAAARQwggEQBgkqhkiG9w0BBwagggEBMIH+AgEAMIH4BgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDI3UQqPIry6QcTBzkAIBEICByqRKIzcQ/k98qC3bWY8FuQN7Ke5cRoa9sbrMekZ1+viTPN4YnnjSkZjuJQkVhwKiajl2GNC/N+zGFyPIMTK23GAWGolL38WCLI39e3HipaZqBe4/on5HzIIkxB9btWzkFE6nLYrpT9sDHU30E2EYLzAsxF4R3Ipflr62fICRkleWgFBr3+tnYXSsgjJe6jYS+p9dd1K/oly8ic6+KNK1xyMvytycjI6kU1N8pjRSE0S2nzj7uSv4IbTQpwMB9T5N9OyMLZEYMszxo3I=",
+  "MESSENGER_VERIFYTOKEN": "AQECAHgTnPXcypE+S2ivqwKZjAYB1RzlVIGtyTMgyv2/zd3A6gAAAG8wbQYJKoZIhvcNAQcGoGAwXgIBADBZBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDJMDzXXfQQD0xjlOlgIBEIAsiHb/vxXm7hcPXOFY71QEYZq7nGWN26MAkcU0NeqIkv3DkqH4baB+NxI+gFY="
+ },
+ "kmsKeyArn": "arn:aws:kms:eu-west-1:060170161162:key/59baa76b-e82d-492c-992a-64eeb1d04932"
+}

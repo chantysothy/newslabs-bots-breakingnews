@@ -1,10 +1,9 @@
-const fs = require('fs');
-let AWS = require( "aws-sdk" );
-
-const utils = require( "./scripts/utils" );
-
-const getDbCreds = require( "./lib/getDbCreds" );
+const fs =    require( "fs" );
+const AWS =   require( "aws-sdk" );
 const mysql = require( "mysql" );
+
+const utils =      require( "../scripts/utils" );
+const getDbCreds = require( "../lib/getDbCreds" );
 
 AWS.config.region = "eu-west-1";
 

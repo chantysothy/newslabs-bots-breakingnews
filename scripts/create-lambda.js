@@ -2,9 +2,9 @@ var AWS                 = require( "aws-sdk" );
 const fs                = require( "fs" );
 const utils             = require( "./utils" );
 
-const toolsConfig = require( `${process.cwd()}/toolsConfig.json` );
+const projectConfig = utils.getProjectConfig();
 
-AWS.config.region = toolsConfig.region;
+AWS.config.region = projectConfig.region;
 
 function createLambda( zipFilePath ) {
 
@@ -26,7 +26,7 @@ function createLambda( zipFilePath ) {
         },
         "Runtime":    config.runtime,
         "Role":       config.roleArn,
-        "Handler":    utils.getLambdaHandler( config.handler ),
+        "Handler":    config.handler,
         "MemorySize": config.memorySize,
         "Timeout":    config.timeout
     };

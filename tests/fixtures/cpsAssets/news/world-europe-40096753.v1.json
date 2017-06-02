@@ -1,0 +1,129 @@
+
+{
+  "results" : [ {
+    "title" : "BBC News - Syrian held in Germany over attack plan",
+    "summary" : "German police arrest 17-year-old Syrian suspected of planning suicide attack in Berlin",
+    "type" : "STY",
+    "lastUpdated" : "2017-05-30T13:01:38+00:00",
+    "firstCreated" : "2017-05-30T13:01:37+00:00",
+    "firstPublished" : "2017-05-30T13:01:38+00:00",
+    "lastPublished" : "2017-05-30T13:01:39+00:00",
+    "hasShortForm" : true,
+    "changeQueueId" : "0",
+    "changeQueueTimestamp" : "2017-05-30T13:01:38+00:00",
+    "body" : "<body xmlns=\"http://www.bbc.co.uk/asset\" xml:space=\"preserve\" xml:base=\"http://www.bbc.co.uk/article/ddb75078-b47b-7945-8619-e31a5beb5284\"><image id=\"91952625\"/><paragraph role=\"introduction\">German police arrest 17-year-old Syrian suspected of planning suicide attack in Berlin </paragraph><paragraph><italic>This breaking news story is being updated and more details will be published shortly. Please refresh the page for the fullest version.</italic></paragraph><paragraph><italic>If you want to receive Breaking News alerts via email, or on a smartphone or tablet via the BBC News App then details on how to do so are available on </italic><!-- CPS Asset ID: 40096755 --><link><caption>this help page</caption><altText>BBC News App Help Page</altText><url platform=\"highweb\" href=\"http://www.bbc.co.uk/news/10628323\"/></link><italic>. You can also follow </italic><!-- CPS Asset ID: 40096757 --><link><caption>@BBCBreaking on Twitter</caption><altText>@BBCBreaking Twitter Account</altText><url platform=\"highweb\" href=\"http://twitter.com/BBCBreaking\"/></link><italic> to get the latest alerts.</italic></paragraph></body>",
+    "shortFormBody" : "<shortFormBody xmlns=\"http://www.bbc.co.uk/asset\" xml:space=\"preserve\" xml:base=\"http://www.bbc.co.uk/article/ddb75078-b47b-7945-8619-e31a5beb5284\"><paragraph>German police arrest 17-year-old Syrian suspected of planning suicide attack in Berlin</paragraph><paragraph>This breaking news story is being updated and more details will be published shortly. Please refresh the page for the fullest version.</paragraph><paragraph>If you want to receive Breaking News alerts via email, or on a smartphone or tablet via the BBC News App then details on how to do so are available on     this help page    . You can also follow     @BBCBreaking on Twitter     to get the latest alerts.</paragraph></shortFormBody>",
+    "media" : {
+      "images" : {
+        "body" : {
+          "91952625" : {
+            "height" : 549,
+            "width" : 976,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/CD91/production/_91952625_breaking_image_large-3-1.png",
+            "altText" : "Breaking News image",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "BBC"
+          },
+          "86817111" : {
+            "height" : 549,
+            "width" : 976,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/2BA3/production/_86817111_breaking_image_large-3.png",
+            "altText" : "Breaking News image",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "BBC"
+          },
+          "77623462" : {
+            "height" : 171,
+            "width" : 304,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/77623000/png/_77623462_breaking_image_large-3.png",
+            "caption" : "Breaking News image",
+            "altText" : "Breaking News image",
+            "positionHint" : "body-narrow-width",
+            "copyrightHolder" : "BBC"
+          },
+          "51606573" : {
+            "height" : 171,
+            "width" : 304,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/51606000/jpg/_51606573_fa1d16c0-9c6c-4f82-b0b8-ab66ddd94f78.jpg",
+            "altText" : "Breaking news",
+            "positionHint" : "body-narrow-width",
+            "copyrightHolder" : "BBC"
+          }
+        },
+        "index" : {
+          "91950162" : {
+            "height" : 549,
+            "width" : 976,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/65F9/production/_91950162_breaking_image_large-3-1.png",
+            "altText" : "Breaking News image",
+            "copyrightHolder" : "BBC"
+          }
+        },
+        "index-thumbnail" : {
+          "77623465" : {
+            "height" : 171,
+            "width" : 304,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/77623000/png/_77623465_breaking_image_large-3.png",
+            "caption" : "Breaking News image",
+            "altText" : "Breaking News image",
+            "copyrightHolder" : "BBC"
+          }
+        },
+        "slideshow" : {
+          "77637217" : {
+            "height" : 288,
+            "width" : 512,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/77637000/png/_77637217_breaking_image_large-3.png",
+            "caption" : "Breaking News image",
+            "altText" : "Breaking News image",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "BBC"
+          }
+        }
+      }
+    },
+    "options" : {
+      "allowRightHandSide" : true,
+      "allowRelatedStoriesBox" : true,
+      "includeComments" : false,
+      "isIgorSeoTagsEnabled" : false,
+      "hasNewsTracker" : false,
+      "isFactCheck" : false,
+      "allowAdvertising" : true,
+      "hasContentWarning" : false,
+      "allowDateStamp" : true,
+      "allowHeadline" : true,
+      "isKeyContent" : false,
+      "allowPrintingSharingLinks" : true,
+      "isBreakingNews" : true,
+      "suitableForSyndication" : true
+    },
+    "language" : "en-gb",
+    "id" : "http://www.bbc.co.uk/asset/59b98e1a-81a0-8547-acdd-b3b089bacac4",
+    "assetUri" : "/news/world-europe-40096753",
+    "assetId" : "40096753",
+    "headline" : "Syrian held in Germany over attack plan",
+    "shortHeadline" : "Syrian held in Germany over attack plan",
+    "section" : {
+      "name" : "Europe",
+      "id" : "99123",
+      "uri" : "/news/world/europe",
+      "urlIdentifier" : "/news/world/europe"
+    },
+    "site" : {
+      "name" : "BBC News",
+      "code" : "news-v6",
+      "urlIdentifier" : "/news",
+      "frontPageUri" : "/news/front_page"
+    },
+    "workerCallingCard" : "app064.back.live.cwwtf.local-46",
+    "iStatsCounterName" : "news.world.europe.story.40096753.page"
+  } ]
+}

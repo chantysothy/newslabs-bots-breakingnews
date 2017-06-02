@@ -1,0 +1,14 @@
+{
+    "bastionService": {
+        "endpoint": "https://wormhole.api.bbci.co.uk/account/060170161162/credentials",
+        "certPath": "/Users/maslet02/workspace/certs/dev.bbc.co.uk.pem",
+        "cloudServicesRoot": "/Users/maslet02/workspace/certs/cloudservicesroot.pem"
+    },
+    "region": "eu-west-1",
+    "useBastion": true,
+    "environmentVariables": {
+        "NODE_ENV": "test",
+    	"CONTENT_STORE_HOST_NAME": "s3-eu-west-1.amazonaws.com",
+    	"CONTENT_STORE_PATH": "/bot-experiments/breaking-news/fake-cps/${cpsAssetId}"
+    }
+}

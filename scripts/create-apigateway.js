@@ -8,8 +8,8 @@ var cloudformationTemplate = require( "./templates/api-gateway-for-lambda-based-
 
 // require('console.table');
 
-const toolsConfig = require( `${process.cwd()}/toolsConfig.json` );
-AWS.config.region = toolsConfig.region;
+const projectConfig = utils.getProjectConfig();
+AWS.config.region = projectConfig.region;
 
 function createApiGateway() {
 

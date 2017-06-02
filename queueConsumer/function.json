@@ -1,15 +1,14 @@
 {
  "memorySize": 256,
  "name":       "breakingNewsQueueConsumer",
- "handler":    "handler",
+ "handler":    "queueConsumer/index.handler",
  "runtime":    "nodejs6.10",
  "timeout":    6,
  "environmentVariables": {
  	"NODE_ENV": "test"
  },
  "userDefinedCodeToDeploy": [
-  "queueConsumer.js",
-  "settings.json",
+  "queueConsumer/index.js",
   "lib/getContentStoreAsset.js",
   "lib/getDataToDetermineHowToUpdateUsers.js",
   "lib/getDbCreds.js",
@@ -17,7 +16,8 @@
   "lib/getSecrets.js",
   "lib/storeNewVersionOfContent.js",
   "lib/sendUpdateViaWorkerLambda.js",
-  "lib/getSummaryFromCpsAsset.js"
+  "lib/getSummaryFromCpsAsset.js",
+  "lib/queueConsumer.js"
  ],
  "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
  "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueConsumerRole",

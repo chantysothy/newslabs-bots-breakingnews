@@ -1,9 +1,10 @@
 const mysql = require( "mysql" );
-const getDbCreds = require( "./lib/getDbCreds" );
-const getUsersSubscribedToCpsId = require( "./lib/getUsersSubscribedToCpsId" );
-const removeSubscriber = require( "./lib/removeSubscriber" );
-const MessengerClient  = require( "./lib/messengerClient" );
-const getSecrets       = require( "./lib/getSecrets" );
+
+const getDbCreds = require( "../lib/getDbCreds" );
+const getUsersSubscribedToCpsId = require( "../lib/getUsersSubscribedToCpsId" );
+const removeSubscriber = require( "../lib/removeSubscriber" );
+const MessengerClient  = require( "../lib/messengerClient" );
+const getSecrets       = require( "../lib/getSecrets" );
 
 function removeNewsStories ( cpsIds ) {
 
@@ -74,11 +75,14 @@ function removeAndUnsubscribeAllUsersForCpsStory( cpsId ) {
 
 		getUsersSubscribedToCpsId( cpsId ).then( ( userIds ) => {
 
-			getSecrets( "messenger" ).then ( ( messengerSecrets ) => {
+			getSecrets( "MESSENGER_PAGEACCESSTOKEN", "MESSENGER_VERIFYTOKEN" ).then ( ( messengerSecrets ) => {
 
 				userIds.forEach( ( userId ) => {
 
-					let messengerClient = new MessengerClient( messengerSecrets );
+					let messengerClient = new MessengerClient( {
+		                "pageAccessToken": messengerSecrets[ 0 ],
+		                "verifyToken":     messengerSecrets[ 1 ]
+		            } );
 
 					removeSubscriber( userId, cpsId, messengerClient ).catch( console.log );
 
@@ -86,7 +90,7 @@ function removeAndUnsubscribeAllUsersForCpsStory( cpsId ) {
 
 				resolve();
 
-			});
+			}).catch( console.log );
 
 		}).catch( console.log );
 
@@ -99,7 +103,8 @@ function removeUserEntries ( cpsIds ) {
 	return Promise.all( cpsIds.map( removeAndUnsubscribeAllUsersForCpsStory ) )
 		.then( () => {
 			return cpsIds;
-		});
+		})
+		.catch( console.log );
 
 }
 

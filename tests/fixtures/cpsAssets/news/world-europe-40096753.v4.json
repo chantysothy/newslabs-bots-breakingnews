@@ -1,0 +1,452 @@
+
+{
+  "results" : [ {
+    "title" : "BBC News - Syrian held in Germany over Berlin 'suicide attack plan'",
+    "summary" : "German police arrest a 17-year-old Syrian suspected of planning a suicide attack in Berlin.",
+    "type" : "STY",
+    "lastUpdated" : "2017-05-30T13:45:00+00:00",
+    "firstCreated" : "2017-05-30T13:01:37+00:00",
+    "firstPublished" : "2017-05-30T13:01:38+00:00",
+    "lastPublished" : "2017-05-30T14:07:31+00:00",
+    "hasShortForm" : true,
+    "changeQueueId" : "0",
+    "changeQueueTimestamp" : "2017-05-30T14:07:31+00:00",
+    "body" : "<body xmlns=\"http://www.bbc.co.uk/asset\" xml:space=\"preserve\" xml:base=\"http://www.bbc.co.uk/article/ddb75078-b47b-7945-8619-e31a5beb5284\"><image id=\"96273107\"/><paragraph role=\"introduction\">German police have arrested a Syrian teenager suspected of planning a suicide attack in Berlin.</paragraph><paragraph>The suspect, 17, was arrested in the Uckermark, a district in Brandenburg, the state's Interior Minister, Karl Heinz SchrÃ¶ter, announced.</paragraph><paragraph>He entered Germany in 2015 and sought asylum, police said. Details of the alleged plot were not released.</paragraph><paragraph>In December, a jihadist killed 12 people with a lorry at a Berlin Christmas market.</paragraph><paragraph>That attack by Anis Amri, a Tunisian, put security services under intense scrutiny because of the way in which the attacker, who was later shot dead by police in Italy, evaded their surveillance and crossed European borders undetected.</paragraph><paragraph>Special forces arrested the Syrian teenager after police received a tip-off, Brandenburg police <!-- CPS Asset ID: 40096915 --><link><caption>tweeted</caption><url platform=\"highweb\" href=\"https://twitter.com/PolizeiBB/status/869534845168439296/photo/1\"/></link> (in German).</paragraph><paragraph>The suspect had been living in a home for unaccompanied underage refugees in Uckermark since 2016 and had never before come to the attention of police. </paragraph><paragraph>He is currently being questioned and the home is being searched by the state criminal investigation office, Brandenburg police said.</paragraph><paragraph>Operations are ongoing, the police added.</paragraph></body>",
+    "shortFormBody" : "<shortFormBody xmlns=\"http://www.bbc.co.uk/asset\" xml:space=\"preserve\" xml:base=\"http://www.bbc.co.uk/article/ddb75078-b47b-7945-8619-e31a5beb5284\"><paragraph>German police have arrested a Syrian teenager suspected of planning a suicide attack in Berlin.</paragraph><paragraph>The suspect, 17, was arrested in the Uckermark, a district in Brandenburg, the state's Interior Minister, Karl Heinz SchrÃ¶ter, announced.</paragraph><paragraph>He entered Germany in 2015 and sought asylum, police said. Details of the alleged plot were not released.</paragraph><paragraph>In December, a jihadist killed 12 people with a lorry at a Berlin Christmas market.</paragraph></shortFormBody>",
+    "media" : {
+      "images" : {
+        "body" : {
+          "91952625" : {
+            "height" : 549,
+            "width" : 976,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/CD91/production/_91952625_breaking_image_large-3-1.png",
+            "altText" : "Breaking News image",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "BBC"
+          },
+          "86817111" : {
+            "height" : 549,
+            "width" : 976,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/2BA3/production/_86817111_breaking_image_large-3.png",
+            "altText" : "Breaking News image",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "BBC"
+          },
+          "77623462" : {
+            "height" : 171,
+            "width" : 304,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/77623000/png/_77623462_breaking_image_large-3.png",
+            "caption" : "Breaking News image",
+            "altText" : "Breaking News image",
+            "positionHint" : "body-narrow-width",
+            "copyrightHolder" : "BBC"
+          },
+          "51606573" : {
+            "height" : 171,
+            "width" : 304,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/51606000/jpg/_51606573_fa1d16c0-9c6c-4f82-b0b8-ab66ddd94f78.jpg",
+            "altText" : "Breaking news",
+            "positionHint" : "body-narrow-width",
+            "copyrightHolder" : "BBC"
+          },
+          "96273107" : {
+            "height" : 549,
+            "width" : 976,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/111F9/production/_96273107_gettyimages-501208076.jpg",
+            "caption" : "The teenager was allegedly plotting an attack in Berlin",
+            "altText" : "View of the Berlin skyline seen from Potsdamer Platz to Alexanderplatz",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "AFP"
+          }
+        },
+        "index" : {
+          "96273105" : {
+            "height" : 1152,
+            "width" : 2048,
+            "originCode" : "cpsprodpb",
+            "href" : "http://c.files.bbci.co.uk/C3D9/production/_96273105_gettyimages-501208076.jpg",
+            "altText" : "View of the Berlin skyline seen from Potsdamer Platz to Alexanderplatz",
+            "copyrightHolder" : "AFP"
+          }
+        },
+        "index-thumbnail" : {
+          "77623465" : {
+            "height" : 171,
+            "width" : 304,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/77623000/png/_77623465_breaking_image_large-3.png",
+            "caption" : "Breaking News image",
+            "altText" : "Breaking News image",
+            "copyrightHolder" : "BBC"
+          }
+        },
+        "slideshow" : {
+          "77637217" : {
+            "height" : 288,
+            "width" : 512,
+            "originCode" : "mcs",
+            "href" : "http://news.bbcimg.co.uk/media/images/77637000/png/_77637217_breaking_image_large-3.png",
+            "caption" : "Breaking News image",
+            "altText" : "Breaking News image",
+            "positionHint" : "full-width",
+            "copyrightHolder" : "BBC"
+          }
+        }
+      }
+    },
+    "relatedGroups" : [ {
+      "type" : "index",
+      "items" : [ {
+        "assetId" : "38584705",
+        "assetUri" : "/news/world-europe-38584705",
+        "firstCreated" : "2017-01-11T11:14:50+00:00",
+        "hasShortForm" : true,
+        "headline" : "Migrant crisis: Germany sees massive drop in asylum seekers",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-01-11T13:40:46+00:00",
+        "media" : {
+          "images" : {
+            "body" : {
+              "93358262" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/66AD/production/_93358262_gettyimages-490807952.jpg",
+                "caption" : "Although the number of arrivals was down in 2016, the number of applications actually rose",
+                "altText" : "Migrants queuing in Berlin in October 2015",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "93354886" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/10CED/production/_93354886_028892453-1.jpg",
+                "caption" : "Although the number of arrivals was down in 2016, the number of applications actually rose",
+                "altText" : "Migrants arrive in Munich in September 2016",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AFP"
+              },
+              "75306515" : {
+                "height" : 2,
+                "width" : 464,
+                "originCode" : "mcs",
+                "href" : "http://news.bbcimg.co.uk/media/images/75306000/jpg/_75306515_line976.jpg",
+                "altText" : "line",
+                "positionHint" : "body-width",
+                "copyrightHolder" : "BBC"
+              },
+              "93358267" : {
+                "height" : 299,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/129FD/production/_93358267_037189340-1.jpg",
+                "caption" : "Despite the EU-Turkey deal, some 7,000 migrants from Asia and the Middle East are stranded in Serbia",
+                "altText" : "Migrants wait in line to receive free food during a snowfall outside a derelict customs warehouse in Belgrade (9 Jan)",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Reuters"
+              }
+            },
+            "index" : {
+              "93358331" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/3449/production/_93358331_028892453-1.jpg",
+                "caption" : "Although the number of arrivals was down in 2016, the number of applications actually rose",
+                "altText" : "Migrants arrive in Munich in September 2016",
+                "copyrightHolder" : "AFP"
+              }
+            }
+          }
+        },
+        "section" : {
+          "name" : "Europe",
+          "id" : "99123",
+          "uri" : "/news/world/europe",
+          "urlIdentifier" : "/news/world/europe"
+        },
+        "shortHeadline" : "Massive drop in German asylum seekers",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "Germany says 280,000 new arrivals sought asylum in 2016, a drop of over 600,000 on the previous year.",
+        "title" : "BBC News - Migrant crisis: Germany sees massive drop in asylum seekers",
+        "type" : "STY",
+        "workerCallingCard" : "app144.back.live.telhc.local-55"
+      } ]
+    }, {
+      "type" : "see-alsos",
+      "items" : [ {
+        "assetId" : "38584705",
+        "assetUri" : "/news/world-europe-38584705",
+        "firstCreated" : "2017-01-11T11:14:50+00:00",
+        "hasShortForm" : true,
+        "headline" : "Migrant crisis: Germany sees massive drop in asylum seekers",
+        "language" : "en-gb",
+        "lastUpdated" : "2017-01-11T13:40:46+00:00",
+        "media" : {
+          "images" : {
+            "body" : {
+              "93358262" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/66AD/production/_93358262_gettyimages-490807952.jpg",
+                "caption" : "Although the number of arrivals was down in 2016, the number of applications actually rose",
+                "altText" : "Migrants queuing in Berlin in October 2015",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Getty Images"
+              },
+              "93354886" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/10CED/production/_93354886_028892453-1.jpg",
+                "caption" : "Although the number of arrivals was down in 2016, the number of applications actually rose",
+                "altText" : "Migrants arrive in Munich in September 2016",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AFP"
+              },
+              "75306515" : {
+                "height" : 2,
+                "width" : 464,
+                "originCode" : "mcs",
+                "href" : "http://news.bbcimg.co.uk/media/images/75306000/jpg/_75306515_line976.jpg",
+                "altText" : "line",
+                "positionHint" : "body-width",
+                "copyrightHolder" : "BBC"
+              },
+              "93358267" : {
+                "height" : 299,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/129FD/production/_93358267_037189340-1.jpg",
+                "caption" : "Despite the EU-Turkey deal, some 7,000 migrants from Asia and the Middle East are stranded in Serbia",
+                "altText" : "Migrants wait in line to receive free food during a snowfall outside a derelict customs warehouse in Belgrade (9 Jan)",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Reuters"
+              }
+            },
+            "index" : {
+              "93358331" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/3449/production/_93358331_028892453-1.jpg",
+                "caption" : "Although the number of arrivals was down in 2016, the number of applications actually rose",
+                "altText" : "Migrants arrive in Munich in September 2016",
+                "copyrightHolder" : "AFP"
+              }
+            }
+          }
+        },
+        "section" : {
+          "name" : "Europe",
+          "id" : "99123",
+          "uri" : "/news/world/europe",
+          "urlIdentifier" : "/news/world/europe"
+        },
+        "shortHeadline" : "Massive drop in German asylum seekers",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "Germany says 280,000 new arrivals sought asylum in 2016, a drop of over 600,000 on the previous year.",
+        "title" : "BBC News - Migrant crisis: Germany sees massive drop in asylum seekers",
+        "type" : "STY",
+        "workerCallingCard" : "app144.back.live.telhc.local-55"
+      }, {
+        "assetId" : "38415287",
+        "assetUri" : "/news/world-europe-38415287",
+        "firstCreated" : "2016-12-23T10:02:00+00:00",
+        "hasShortForm" : true,
+        "headline" : "Berlin truck attacker Anis Amri killed in Milan",
+        "language" : "en-gb",
+        "lastUpdated" : "2016-12-23T16:17:35+00:00",
+        "media" : {
+          "images" : {
+            "body" : {
+              "93089921" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/32C6/production/_93089921_hi036979516.jpg",
+                "caption" : "German federal police released images of Anis Amri",
+                "altText" : "German federal police handout pictures of Berlin market attack suspect Anis Amri (21 December)",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "BKA / HANDOUT"
+              },
+              "93112051" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/3AAD/production/_93112051_mediaitem93112048.jpg",
+                "caption" : "IS released a video showing Amri pledging allegiance",
+                "altText" : "image grab taken from a propaganda video showing Anis Amri",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AFP"
+              },
+              "93105303" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/768E/production/_93105303_de27-1.jpg",
+                "caption" : "The shootout took place in the Sesto San Giovanni area of Milan",
+                "altText" : "Police and forensics at the scene of a shootout in Milan",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Rai"
+              },
+              "93105305" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/C4AE/production/_93105305_4a9d047e-19b5-4356-b2d1-d11b234a5638.jpg",
+                "caption" : "The shootout took place in the Sesto San Giovanni area of Milan",
+                "altText" : "Italian police cordon off an area after a shootout between police and a man in Milan\"s Sesto San Giovanni neighbourhood, early Friday, Dec. 23, 2016.",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AP"
+              },
+              "93105307" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/112CE/production/_93105307_8da3a42a-f8c1-4047-8fb2-4739e7cca14f.jpg",
+                "caption" : "Mourning continues at Breitscheidplatz in central Berlin, where the attack took place",
+                "altText" : "Candles and flowers are placed at Breitscheidplatz in remembrance of the victims of the 19 December terrorist attack in Berlin, Germany, 23 December 2016.",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "EPA"
+              },
+              "93105310" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/0546/production/_93105310_4e76b3f9-13d1-4bcc-b210-9f8ca8b709ab.jpg",
+                "altText" : "A weapon is marked as evidence as it lays on the ground on 23 December 2016 after Anis Amri shootout",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AFP"
+              },
+              "93105311" : {
+                "height" : 400,
+                "width" : 624,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/2C56/production/_93105311_berlin_suspect_shootout_624.png",
+                "altText" : "Graphic showing location of shootout",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "BBC/Google"
+              },
+              "93095351" : {
+                "height" : 600,
+                "width" : 624,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/3BFF/production/_93095351_anis_amri_movement.png",
+                "altText" : "Map showing Anis Amri's movements",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "BBC"
+              },
+              "93046280" : {
+                "height" : 549,
+                "width" : 976,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/2048/production/_93046280_gerlorrydayafp.jpg",
+                "caption" : "The lorry's Polish driver, Lukasz Urban, was found dead in the passenger seat",
+                "altText" : "Lorry in daylight, at scene",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "AFP"
+              },
+              "93107168" : {
+                "height" : 549,
+                "width" : 549,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/1509A/production/_93107168_injuredpoliceofficer.jpg",
+                "caption" : "Police officer Cristian Movio was injured in the shoulder in the shootout",
+                "altText" : "Injured police officer Cristian Movio talks on the phone in hospital, bandages on his shoulder",
+                "positionHint" : "full-width",
+                "copyrightHolder" : "Polizia di Stato"
+              }
+            },
+            "index" : {
+              "93112049" : {
+                "height" : 432,
+                "width" : 768,
+                "originCode" : "cpsprodpb",
+                "href" : "http://c.files.bbci.co.uk/16F45/production/_93112049_mediaitem93112048.jpg",
+                "altText" : "image grab taken from a propaganda video showing Anis Amri",
+                "copyrightHolder" : "AFP"
+              }
+            }
+          }
+        },
+        "section" : {
+          "name" : "Europe",
+          "id" : "99123",
+          "uri" : "/news/world/europe",
+          "urlIdentifier" : "/news/world/europe"
+        },
+        "shortHeadline" : "Berlin attacker shot dead in Milan",
+        "site" : {
+          "name" : "BBC News",
+          "code" : "news-v6",
+          "urlIdentifier" : "/news",
+          "frontPageUri" : "/news/front_page"
+        },
+        "summary" : "Italian police shoot dead Berlin attacker Anis Amri near a Milan train station after he opened fire.",
+        "title" : "BBC News - Berlin truck attacker Anis Amri killed in Milan",
+        "type" : "STY",
+        "workerCallingCard" : "app144.back.live.telhc.local-54"
+      } ]
+    } ],
+    "options" : {
+      "allowRightHandSide" : true,
+      "allowRelatedStoriesBox" : true,
+      "includeComments" : false,
+      "isIgorSeoTagsEnabled" : false,
+      "hasNewsTracker" : false,
+      "isFactCheck" : false,
+      "allowAdvertising" : true,
+      "hasContentWarning" : false,
+      "allowDateStamp" : true,
+      "allowHeadline" : true,
+      "isKeyContent" : false,
+      "allowPrintingSharingLinks" : true,
+      "isBreakingNews" : false,
+      "suitableForSyndication" : true
+    },
+    "language" : "en-gb",
+    "id" : "http://www.bbc.co.uk/asset/59b98e1a-81a0-8547-acdd-b3b089bacac4",
+    "assetUri" : "/news/world-europe-40096753",
+    "assetId" : "40096753",
+    "headline" : "Syrian held in Germany over Berlin 'suicide attack plan'",
+    "shortHeadline" : "Syrian held in Germany over 'attack plan'",
+    "section" : {
+      "name" : "Europe",
+      "id" : "99123",
+      "uri" : "/news/world/europe",
+      "urlIdentifier" : "/news/world/europe"
+    },
+    "site" : {
+      "name" : "BBC News",
+      "code" : "news-v6",
+      "urlIdentifier" : "/news",
+      "frontPageUri" : "/news/front_page"
+    },
+    "workerCallingCard" : "app134.back.live.telhc.local-46",
+    "iStatsCounterName" : "news.world.europe.story.40096753.page",
+    "passport" : {
+      "category" : {
+        "categoryId" : "http://www.bbc.co.uk/ontologies/applicationlogic-news/News",
+        "categoryName" : "News"
+      }
+    }
+  } ]
+}

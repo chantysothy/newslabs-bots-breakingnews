@@ -7,9 +7,9 @@ var os       = require( "os");
 
 const utils = require( "./utils" );
 
-const toolsConfig = require( `${process.cwd()}/toolsConfig.json` );
+const projectConfig = utils.getProjectConfig();
 
-AWS.config.region = toolsConfig.region;
+AWS.config.region = projectConfig.region;
 
 function getLogName() {
 

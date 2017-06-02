@@ -5,12 +5,12 @@
  "runtime": "nodejs6.10",
  "timeout": 9,
  "environmentVariables": {
-  "NODE_ENV": "test"
+
  },
- "handler": "handler",
+ "handler": "messengerService/index.handler",
  "userDefinedCodeToDeploy": [
-  "messengerService.js",
-  "settings.json",
+  "messengerService/index.js",
+  "lib/messengerService.js",
   "lib/messengerClient.js",
   "lib/getSecrets.js",
   "lib/addSubscriber.js",

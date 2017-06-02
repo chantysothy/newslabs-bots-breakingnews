@@ -26,16 +26,26 @@ function addLambdaEnvironmentVariablesToProcess ( environmentVariables ) {
 
 function createFakeRunTimeRequirements () {
 
-	return new Promise( ( resolve, reject ) => {
+	return new Promise( ( resolve ) => {
 
-		const config = utils.getLambdaConfigFile();
+		const projectConfig = utils.getProjectConfig();
 
-		addLambdaEnvironmentVariablesToProcess( config.environmentVariables );
+		addLambdaEnvironmentVariablesToProcess( projectConfig.environmentVariables );
 
 		resolve();
 
 	});
 
+}
+
+function getLambdaHandler() {
+	try {
+		return require( utils.getLambdaFilePath() )[ utils.getLambdaHandlerName() ];
+	}
+	catch( err ) {
+		console.log( "Error: Cannot find the lambda you are trying to run. Check the `--lambda_name` or the handler property in the lambda's function file.");
+		throw err;
+	}
 }
 
 function runLocalLamda() {
@@ -46,15 +56,17 @@ function runLocalLamda() {
 
 			const config = utils.getLambdaConfigFile();
 
-			require( utils.getLambdaFilePath() )[ config.handler ]( 
+			const lambdaHandler = getLambdaHandler();
+
+			lambdaHandler(
 				getLambdaEventFile(),
 				{
-					"done": () => {
-						// call this to tell lambda you're finished
-					}
+					"done": () => {}
 				},
 				function callback( err, data ) {
-					console.log( err );
+					if ( err ) {
+						reject( err );
+					}
 					console.log( data );
 					resolve();
 				}
@@ -66,16 +78,16 @@ function runLocalLamda() {
 
 }
 
-function runningInTestMode() {
+function runningLocally() {
 	return JSON.parse( process.env.RUN_LAMBDA_LOCAL );
 }
 
 function runLambda ( event ) {
 
-	return new Promise( ( resolve ) => {
+	return new Promise( ( resolve, reject ) => {
 
-		if ( runningInTestMode() ) {
-			runLocalLamda();
+		if ( runningLocally() ) {
+			runLocalLamda().catch( reject );
 		} else {
 			runDeployedLamda();
 		}
@@ -114,4 +126,4 @@ function runDeployedLamda () {
 utils.authenticate()
 	.then( createFakeRunTimeRequirements )
 	.then( runLambda )
-	.catch( console.log )
+	.catch( console.log );

@@ -22,6 +22,7 @@
     "xml2js":             "0.4.17",
     "moment":             "latest",
     "mocha":              "*",
-    "chai":               "*"
+    "chai":               "*",
+    "glob-fs":            "0.1.*"
   }
 }

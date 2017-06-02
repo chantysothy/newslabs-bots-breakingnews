@@ -3,9 +3,9 @@ const AWS      = require( "aws-sdk" );
 
 const utils    = require( "./utils" );
 
-const toolsConfig = require( `${process.cwd()}/toolsConfig.json` );
+const projectConfig = utils.getProjectConfig();
 
-AWS.config.region = toolsConfig.region;
+AWS.config.region = projectConfig.region;
 
 function configShouldBeUpdated( newConfig, deployedConfig ) {
     var shouldUpdate = false;
@@ -17,7 +17,7 @@ function configShouldBeUpdated( newConfig, deployedConfig ) {
         ( newConfig.timeout     !== deployedConfig.Timeout     ) ||
         ( newConfig.runtime     !== deployedConfig.Runtime     ) ||
         ( newConfig.Description !== deployedConfig.Description ) ||
-        ( newConfig.Environment !== deployedConfig.Environment )
+        ( newConfig.EnvironmentVariables !== deployedConfig.Environment.Variables )
     ) {
         shouldUpdate = true;
     }
@@ -44,15 +44,17 @@ function deployToLambda( zipFilePath ) {
             
             if ( configShouldBeUpdated( config, deployedConfig ) ) {
                 
+                console.log( "Updating configuration..." );
+
                 const params = {
                     "FunctionName": config.name,
                     "Description":  config.description,
                     "Environment": {
-                        "Variables": config.environmentVariables
+                        "Variables": projectConfig.environmentVariables
                     },
                     "Runtime":      config.runtime,
                     "Role":         config.roleArn,
-                    "Handler":      utils.getLambdaHandler( config.handler ),
+                    "Handler":      config.handler,
                     "MemorySize":   config.memorySize,
                     "Timeout":      config.timeout
                 };
