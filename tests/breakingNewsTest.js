@@ -112,7 +112,7 @@ function publishUpdateNotification () {
 		};
 
 		const params = {
-			"FunctionName": "breakingNewsQueueConsumer",
+			"FunctionName": utils.getLambdaName( "breakingNewsQueueConsumer" ),
 			"InvocationType": "Event",
 			"Payload": JSON.stringify( fakeSnsPayload )
 		};
@@ -157,5 +157,6 @@ function sendUpdate () {
 }
 
 utils.authenticate()
+	.then( utils.createFakeRunTimeRequirements )
 	.then( prepData )
 	.then( sendUpdate );
