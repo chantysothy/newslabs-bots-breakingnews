@@ -1,26 +1,31 @@
 {
-    "memorySize": 256,
-    "name":       "breakingNewsQueueConsumer",
-    "handler":    "queueConsumer/index.handler",
-    "runtime":    "nodejs6.10",
-    "timeout":    6,
-    "userDefinedCodeToDeploy": [
-        "queueConsumer/index.js",
-        "lib/getContentStoreAsset.js",
-        "lib/getDataToDetermineHowToUpdateUsers.js",
-        "lib/getDbCreds.js",
-        "lib/getLatestUpdate.js",
-        "lib/getSecrets.js",
-        "lib/storeNewVersionOfContent.js",
-        "lib/sendUpdateViaWorkerLambda.js",
-        "lib/getSummaryFromCpsAsset.js",
-        "lib/queueConsumer.js"
-    ],
-    "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
-    "deployedAssets": {
-        "live": {
-            "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueConsumerRole",
-            "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueConsumer"
-        }
-    }
+ "memorySize": 256,
+ "name": "breakingNewsQueueConsumer",
+ "handler": "queueConsumer/index.handler",
+ "runtime": "nodejs6.10",
+ "timeout": 6,
+ "userDefinedCodeToDeploy": [
+  "queueConsumer/index.js",
+  "lib/getContentStoreAsset.js",
+  "lib/getDataToDetermineHowToUpdateUsers.js",
+  "lib/getDbCreds.js",
+  "lib/getLatestUpdate.js",
+  "lib/getSecrets.js",
+  "lib/storeNewVersionOfContent.js",
+  "lib/sendUpdateViaWorkerLambda.js",
+  "lib/getSummaryFromCpsAsset.js",
+  "lib/queueConsumer.js",
+  "lib/anyEnvButLive.js"
+ ],
+ "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
+ "deployedAssets": {
+  "live": {
+   "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueConsumerRole",
+   "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueConsumer"
+  },
+  "test": {
+    "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueConsumerTESTRole",
+    "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueConsumerTEST"
+  }
+ }
 }

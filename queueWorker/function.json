@@ -1,20 +1,24 @@
 {
-	"memorySize": 256,
-	"name": "breakingNewsQueueWorker",
-	"description": "Breaking news lambda for handling batch processing of sending notifications to users.",
-	"handler": "queueWorker/index.handler",
-	"runtime": "nodejs6.10",
-	"timeout": 4,
-	"userDefinedCodeToDeploy": [
-		"queueWorker/index.js",
-		"lib/MessengerClient.js",
-		"lib/getSecrets.js"
-	],
-	"customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
-	"deployedAssets": {
-		"live": {
-			"roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueWorkerRole",
-			"lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueWorker"
-		}
-	}
+ "memorySize": 256,
+ "name": "breakingNewsQueueWorker",
+ "description": "Breaking news lambda for handling batch processing of sending notifications to users.",
+ "handler": "queueWorker/index.handler",
+ "runtime": "nodejs6.10",
+ "timeout": 4,
+ "userDefinedCodeToDeploy": [
+  "queueWorker/index.js",
+  "lib/MessengerClient.js",
+  "lib/getSecrets.js"
+ ],
+ "customRolePolicy": "arn:aws:iam::060170161162:policy/BreakingNewsMessengerServicePolicy",
+ "deployedAssets": {
+  "live": {
+   "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueWorkerRole",
+   "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueWorker"
+  },
+  "test": {
+   "roleArn": "arn:aws:iam::060170161162:role/breakingNewsQueueWorkerTESTRole",
+   "lambdaArn": "arn:aws:lambda:eu-west-1:060170161162:function:breakingNewsQueueWorkerTEST"
+  }
+ }
 }
