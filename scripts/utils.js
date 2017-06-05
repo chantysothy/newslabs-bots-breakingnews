@@ -8,6 +8,8 @@ const commandLineArgs = require( "command-line-args" );
 const _               = require( "lodash" );
 const glob            = require('glob-fs')({ gitignore: true });
 
+const anyEnvButLive   = require( "../lib/anyEnvButLive" );
+
 let options = getCliOptions();
 
 var projectConfigFileName;
@@ -368,10 +370,6 @@ function getLambdaHandlerName () {
 
     return everythingBeforeTheLastDot( config.handler );
 
-}
-
-function anyEnvButLive () {
-    return ( process.env.ENV !== "live" ) ? process.env.ENV.toUpperCase() : "";
 }
 
 function getLambdaName ( nameOverride) {
