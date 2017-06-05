@@ -14,8 +14,7 @@ AWS.config.region = projectConfig.region;
 function getLogName() {
 
 	if ( process.env.LAMBDA_NAME !== "null" ) {
-		const config = utils.getLambdaConfigFile();
-		return `/aws/lambda/${config.name}`;
+		return `/aws/lambda/${utils.getLambdaName()}`;
 	}
 
 	const options = utils.getOptions();

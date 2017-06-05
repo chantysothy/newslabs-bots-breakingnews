@@ -15,7 +15,7 @@ function updateApiGateway () {
         // Do something here if you want to edit cloudformation config
 
     	var params = {
-    	    "StackName": config.name,
+    	    "StackName": utils.getLambdaName(),
     	    "Capabilities": [ "CAPABILITY_IAM" ],
             "Parameters": [{
                 "ParameterKey":     "LambdaARN",
@@ -23,7 +23,7 @@ function updateApiGateway () {
                 "UsePreviousValue": false
     	    },{
                 "ParameterKey":     "ApiName",
-                "ParameterValue":   config.name,
+                "ParameterValue":   utils.getLambdaName(),
                 "UsePreviousValue": false
             },{
                 "ParameterKey":     "ApiDescription",

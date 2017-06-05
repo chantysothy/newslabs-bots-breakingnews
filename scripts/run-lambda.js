@@ -102,7 +102,7 @@ function runDeployedLamda () {
 	const config = utils.getLambdaConfigFile();
 	const lambda = new AWS.Lambda();
 	const params = {
-		"FunctionName": config.name,
+		"FunctionName": utils.getLambdaName(),
 		"InvocationType": "RequestResponse",
 		"Payload": JSON.stringify( getLambdaEventFile() ),
 		"LogType": "Tail"

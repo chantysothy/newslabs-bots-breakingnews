@@ -21,7 +21,7 @@ function isLambdaAlreadyDeployed( options ) {
 	  } else {
 	  	let match = false;
 	  	data.Functions.forEach( ( func ) => {
-	  		if ( func.FunctionName === lambdaConfig.name ) {
+	  		if ( func.FunctionName === utils.getLambdaName() ) {
 	  			match = true;
 	  		}
 	  	});

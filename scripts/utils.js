@@ -5,7 +5,8 @@ const path            = require( "path" );
 const fse             = require( "fs-extra" );
 const cmd             = require( "node-cmd" );
 const commandLineArgs = require( "command-line-args" );
-const glob = require('glob-fs')({ gitignore: true });
+const _               = require( "lodash" );
+const glob            = require('glob-fs')({ gitignore: true });
 
 let options = getCliOptions();
 
@@ -297,10 +298,32 @@ function formatBytes(bytes,decimals) {
    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-function addValueToLambdaConfig ( property, value ) {
+function lastItemInArray ( item, arr ) {
+    return _.last( arr ) === item;
+}
+
+function addValueToLambdaConfig ( DotDelimitedProperty, value ) {
 
     let config = getLambdaConfigFile( process.env.LAMBDA_NAME );
-    config[ property ] = value;
+
+    const propertyChain = DotDelimitedProperty.split( "." );
+
+    let referencedPropertyToEdit = config;
+
+    propertyChain.forEach( ( property, i, a ) => {
+        
+        if ( !( property in referencedPropertyToEdit ) ) {
+            referencedPropertyToEdit[ property ] = {};
+        }
+        
+        if ( lastItemInArray( property, propertyChain ) ) {
+            referencedPropertyToEdit[ property ] = value;
+        } else {
+            referencedPropertyToEdit = referencedPropertyToEdit[ property ];
+        }
+
+    });
+
     fs.writeFileSync( getLambdaConfigFilePath( process.env.LAMBDA_NAME ), JSON.stringify( config, null, " " ) );
 
 }
@@ -335,11 +358,30 @@ function getLambdaFilePath() {
 
 }
 
+function everythingBeforeTheLastDot( dotDelimitedString ) {
+    return dotDelimitedString.split(".").pop();
+}
+
 function getLambdaHandlerName () {
 
     const config = getLambdaConfigFile( process.env.LAMBDA_NAME );
 
-    return config.handler.split(".").pop();
+    return everythingBeforeTheLastDot( config.handler );
+
+}
+
+function anyEnvButLive () {
+    return ( process.env.ENV !== "live" ) ? process.env.ENV.toUpperCase() : "";
+}
+
+function getLambdaName () {
+
+    const lambdaConfig = getLambdaConfigFile();
+
+    const appendedToName = anyEnvButLive();
+
+    return lambdaConfig.name + appendedToName;
+
 }
 
 module.exports = {
@@ -354,6 +396,7 @@ module.exports = {
     "getLambdaConfigFilePath": getLambdaConfigFilePath,
     "getLambdaFilePath": getLambdaFilePath,
     "getLambdaHandlerName": getLambdaHandlerName,
+    "getLambdaName": getLambdaName,
     "pruneNpmModules": pruneNpmModules,
     "setRegion": setRegion,
     "zipFiles": zipFiles

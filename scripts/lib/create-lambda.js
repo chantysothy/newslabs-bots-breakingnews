@@ -14,8 +14,10 @@ function createLambda( zipFilePath ) {
 
     var lambda = new AWS.Lambda();
 
+    console.log( "roleARN: " + config.deployedAssets[ process.env.ENV ].roleArn );
+
     var params = {
-        "FunctionName": config.name,
+        "FunctionName": utils.getLambdaName(),
         "Description": config.description,
         "Environment": {
             "Variables": config.environmentVariables
@@ -25,7 +27,7 @@ function createLambda( zipFilePath ) {
             "ZipFile": fs.readFileSync( zipFilePath )
         },
         "Runtime":    config.runtime,
-        "Role":       config.roleArn,
+        "Role":       config.deployedAssets[ process.env.ENV ].roleArn,
         "Handler":    config.handler,
         "MemorySize": config.memorySize,
         "Timeout":    config.timeout
@@ -36,7 +38,7 @@ function createLambda( zipFilePath ) {
             console.log(err, err.stack);
         } else {
             console.log( "lambda created" );
-            utils.addValueToLambdaConfig( "lambdaArn", data.FunctionArn );
+            utils.addValueToLambdaConfig( `deployedAssets.${process.env.ENV}.lambdaArn`, data.FunctionArn );
         }
     });
 
@@ -48,9 +50,11 @@ function createRoleForLambda() {
 
         const config = utils.getLambdaConfigFile();
 
-        const roleName = `${config.name}Role`;
+        const roleName = `${utils.getLambdaName()}Role`;
 
-        if ( ( typeof config.roleArn === "string" ) && ( config.roleArn !== "" ) ) {
+        const roleArn = ( process.env.ENV in config.deployedAssets ) ? config.deployedAssets[ process.env.ENV ].roleArn : null;
+
+        if ( ( typeof roleArn === "string" ) && ( roleArn !== "" ) ) {
             console.log( `${roleName} already defined in the file "${utils.getLambdaConfigFilePath()}.`);
             resolve();
             return;
@@ -82,7 +86,7 @@ function createRoleForLambda() {
                     if ( err ) {
                         reject( err );
                     } else {
-                        utils.addValueToLambdaConfig( "roleArn", data.Role.Arn );
+                        utils.addValueToLambdaConfig( `deployedAssets.${process.env.ENV}.roleArn`, data.Role.Arn );
                         iam.attachRolePolicy({
                             "RoleName": roleName,
                             "PolicyArn" : "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
@@ -124,7 +128,7 @@ function createRoleForLambda() {
             } else {
 
                 console.log( roleName + " already exists in your AWS account.");
-                utils.addValueToLambdaConfig( "roleArn", data.Role.Arn );
+                utils.addValueToLambdaConfig( `deployedAssets.${process.env.ENV}.roleArn`, data.Role.Arn );
                 resolve();
 
             }

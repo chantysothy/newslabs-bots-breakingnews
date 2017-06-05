@@ -55,7 +55,7 @@ function displayStackOutputs() {
         var cloudformation = new AWS.CloudFormation({apiVersion: '2010-05-15'});
 
         cloudformation.describeStacks({
-            "StackName": config.name
+            "StackName": utils.getLambdaName()
         }, ( err, data ) => {
 
             if ( err ) {
@@ -97,7 +97,7 @@ function checkStackStatus( consoledStackEventIds ) {
 
         cloudformation.describeStackEvents({
             "NextToken": "1",
-            "StackName": config.name
+            "StackName": utils.getLambdaName()
         }, ( err, data ) => {
 
             if ( err ) {

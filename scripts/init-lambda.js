@@ -16,7 +16,10 @@ const defaultFunctionTemplate = `
 	"handler": "queueWorker/index.handler",
 	"runtime": "nodejs6.10",
 	"timeout": 3,
-	"userDefinedCodeToDeploy": []
+	"userDefinedCodeToDeploy": [],	
+    "deployedAssets": {
+ 	    "live": {}
+    }
 }
 `;
 

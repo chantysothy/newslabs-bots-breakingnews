@@ -22,7 +22,7 @@ function createApiGateway() {
         // Do something here if you want to edit cloudformation config
 
     	var params = {
-    	    "StackName": config.name,
+    	    "StackName": utils.getLambdaName(),
     	    "Capabilities": [ "CAPABILITY_IAM" ],
             "OnFailure": "ROLLBACK",
             "Parameters": [{
@@ -31,7 +31,7 @@ function createApiGateway() {
                 "UsePreviousValue": false
     	    },{
                 "ParameterKey":     "ApiName",
-                "ParameterValue":   config.name,
+                "ParameterValue":   utils.getLambdaName(),
                 "UsePreviousValue": false
             },{
                 "ParameterKey":     "ApiDescription",
@@ -101,7 +101,7 @@ function displayStackOutputs() {
         var cloudformation = new AWS.CloudFormation({apiVersion: '2010-05-15'});
 
         cloudformation.describeStacks({
-            "StackName": config.name
+            "StackName": utils.getLambdaName()
         }, ( err, data ) => {
 
             if ( err ) {
@@ -143,7 +143,7 @@ function checkStackStatus( consoledStackEventIds ) {
 
         cloudformation.describeStackEvents({
             "NextToken": "1",
-            "StackName": config.name
+            "StackName": utils.getLambdaName()
         }, ( err, data ) => {
 
             if ( err ) {

@@ -33,7 +33,7 @@ function deployToLambda( zipFilePath ) {
     var lambda = new AWS.Lambda();
 
     const params = {
-        "FunctionName": config.name, 
+        "FunctionName": utils.getLambdaName(), 
         "Publish": true,
         "ZipFile": fs.readFileSync( zipFilePath )
     };
@@ -47,7 +47,7 @@ function deployToLambda( zipFilePath ) {
                 console.log( "Updating configuration..." );
 
                 const params = {
-                    "FunctionName": config.name,
+                    "FunctionName": utils.getLambdaName(),
                     "Description":  config.description,
                     "Environment": {
                         "Variables": projectConfig.environmentVariables
