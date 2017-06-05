@@ -1,6 +1,6 @@
 {
-	"subscriber":  "news/uk-39355940",
-	"userId": "1317577321651234",
+	"cpsId":  "news/uk-39355940",
+	"subscriber": "1317577321651234",
 	"message": {
 		"content": [
 			"BBC News - London attack: Two killed in Westminster 'terror' incident",
