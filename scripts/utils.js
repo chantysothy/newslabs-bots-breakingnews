@@ -34,7 +34,7 @@ function getCliOptions() {
     const cliOptions       = commandLineArgs( optionDefinitions );
     projectConfigFileName  = chooseProjectFile( listEnvFiles(), cliOptions.env );
     const optionsOverrided = getConfigOptions( cliOptions );
-    
+
     return optionsOverrided;
 
 }
@@ -384,11 +384,34 @@ function getLambdaName () {
 
 }
 
+function addLambdaEnvironmentVariablesToProcess ( environmentVariables ) {
+    if ( environmentVariables ) {
+        Object.keys( environmentVariables ).forEach( ( key ) => {
+            process.env[ key ] = environmentVariables[ key ];
+        });
+    }
+}
+
+function createFakeRunTimeRequirements () {
+
+    return new Promise( ( resolve ) => {
+
+        const projectConfig = getProjectConfig();
+
+        addLambdaEnvironmentVariablesToProcess( projectConfig.environmentVariables );
+
+        resolve();
+
+    });
+
+}
+
 module.exports = {
     "addEnvVarToProjectConfig": addEnvVarToProjectConfig,
     "addValueToLambdaConfig": addValueToLambdaConfig,
     "authenticate": authenticate,
     "copyAllFilesInTmpDir": copyAllFilesInTmpDir,
+    "createFakeRunTimeRequirements": createFakeRunTimeRequirements,
     "getOptions": getOptions,
     "getProjectConfig": getProjectConfig,
     "getProjectConfigFilePath": getProjectConfigFilePath,

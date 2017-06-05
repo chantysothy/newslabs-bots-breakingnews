@@ -16,27 +16,7 @@ function getLambdaEventFile () {
 
 }
 
-function addLambdaEnvironmentVariablesToProcess ( environmentVariables ) {
-	if ( environmentVariables ) {
-		Object.keys( environmentVariables ).forEach( ( key ) => {
-			process.env[ key ] = environmentVariables[ key ];
-		});
-	}
-}
 
-function createFakeRunTimeRequirements () {
-
-	return new Promise( ( resolve ) => {
-
-		const projectConfig = utils.getProjectConfig();
-
-		addLambdaEnvironmentVariablesToProcess( projectConfig.environmentVariables );
-
-		resolve();
-
-	});
-
-}
 
 function getLambdaHandler() {
 	try {
@@ -52,7 +32,7 @@ function runLocalLamda() {
 
 	return new Promise( ( resolve, reject ) => {
 
-		createFakeRunTimeRequirements().then( () => {
+		utils.createFakeRunTimeRequirements().then( () => {
 
 			const config = utils.getLambdaConfigFile();
 
@@ -124,6 +104,5 @@ function runDeployedLamda () {
 }
 
 utils.authenticate()
-	.then( createFakeRunTimeRequirements )
 	.then( runLambda )
 	.catch( console.log );
