@@ -374,13 +374,11 @@ function anyEnvButLive () {
     return ( process.env.ENV !== "live" ) ? process.env.ENV.toUpperCase() : "";
 }
 
-function getLambdaName () {
-
-    const lambdaConfig = getLambdaConfigFile();
+function getLambdaName ( nameOverride) {
 
     const appendedToName = anyEnvButLive();
 
-    return lambdaConfig.name + appendedToName;
+    return ( nameOverride || getLambdaConfigFile().name ) + appendedToName;
 
 }
 

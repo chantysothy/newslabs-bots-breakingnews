@@ -20,7 +20,7 @@ function createLambda( zipFilePath ) {
         "FunctionName": utils.getLambdaName(),
         "Description": config.description,
         "Environment": {
-            "Variables": config.environmentVariables
+            "Variables": projectConfig.environmentVariables
         },
         "Publish": true,
         "Code": {
