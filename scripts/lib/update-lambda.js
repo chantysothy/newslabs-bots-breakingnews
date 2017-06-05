@@ -7,17 +7,16 @@ const projectConfig = utils.getProjectConfig();
 
 AWS.config.region = projectConfig.region;
 
-function configShouldBeUpdated( newConfig, deployedConfig ) {
+function configShouldBeUpdated( newConfig, projectConfig, deployedConfig ) {
     var shouldUpdate = false;
-    console.log( newConfig );
-    console.log( deployedConfig );
     if ( 
         ( newConfig.handler     !== deployedConfig.Handler     ) ||
         ( newConfig.memorySize  !== deployedConfig.MemorySize  ) ||
         ( newConfig.timeout     !== deployedConfig.Timeout     ) ||
         ( newConfig.runtime     !== deployedConfig.Runtime     ) ||
-        ( newConfig.Description !== deployedConfig.Description ) ||
-        ( newConfig.EnvironmentVariables !== deployedConfig.Environment.Variables )
+        ( newConfig.description !== deployedConfig.Description ) ||
+        ( projectConfig.environmentVariables !== deployedConfig.Environment.Variables ) ||
+        ( projectConfig.vpcConfig !== deployedConfig.VpcConfig )
     ) {
         shouldUpdate = true;
     }
@@ -42,7 +41,7 @@ function deployToLambda( zipFilePath ) {
             console.log(err, err.stack);
         } else {
             
-            if ( configShouldBeUpdated( config, deployedConfig ) ) {
+            if ( configShouldBeUpdated( config, projectConfig, deployedConfig ) ) {
                 
                 console.log( "Updating configuration..." );
 
@@ -58,6 +57,10 @@ function deployToLambda( zipFilePath ) {
                     "MemorySize":   config.memorySize,
                     "Timeout":      config.timeout
                 };
+
+                if ( projectConfig.vpcConfig ) {
+                    params.VpcConfig = projectConfig.vpcConfig;
+                }
 
                 lambda.updateFunctionConfiguration( params, ( err ) => {
 

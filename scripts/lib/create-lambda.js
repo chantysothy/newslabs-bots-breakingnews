@@ -33,6 +33,10 @@ function createLambda( zipFilePath ) {
         "Timeout":    config.timeout
     };
 
+    if ( projectConfig.vpcConfig ) {
+        params.VpcConfig = projectConfig.vpcConfig;
+    }
+
     lambda.createFunction( params, ( err, data ) => {
         if ( err ) {
             console.log(err, err.stack);
