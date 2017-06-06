@@ -151,7 +151,7 @@
       }
     },
 
-    "NatGatewayRouteA" : {
+    "NatGatewayRoute" : {
       "Type" : "AWS::EC2::Route",
       "DependsOn" : "BreakingNewsNatGateway",
       "Properties" : {

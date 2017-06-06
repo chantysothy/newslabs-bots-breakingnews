@@ -9,7 +9,7 @@ const sendOptions = {
 
 		content.forEach( ( image ) => {
 
-	        mc.sendImage({
+			const params = {
 				"userId": userId,
 				"url":    image.href,
 				"quickReplies": [{
@@ -19,7 +19,9 @@ const sendOptions = {
 	                	"cpsId": cpsId
 					}
 				}]
-			}).catch( console.log );
+			};
+
+	        mc.sendImage( params ).catch( console.log );
 
 		});
 
@@ -27,7 +29,7 @@ const sendOptions = {
 
 	"PARAGRAPHS": function sendParagraphs ( userId, cpsId, content ) {
 
-		mc.sendMessage({
+		const params = {
 			"userId":       userId,
 			"message":      content.join( "\n\n" ),
 			"quickReplies": [{
@@ -37,7 +39,9 @@ const sendOptions = {
                 	"cpsId": cpsId
 				}
 			}]
-		}).catch( console.log );
+		};
+
+		mc.sendMessage( params ).catch( console.log );
 
 	}
 

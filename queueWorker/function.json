@@ -1,10 +1,10 @@
 {
- "memorySize": 256,
+ "memorySize": 512,
  "name": "breakingNewsQueueWorker",
  "description": "Breaking news lambda for handling batch processing of sending notifications to users.",
  "handler": "queueWorker/index.handler",
  "runtime": "nodejs6.10",
- "timeout": 4,
+ "timeout": 12,
  "userDefinedCodeToDeploy": [
   "queueWorker/index.js",
   "lib/MessengerClient.js",

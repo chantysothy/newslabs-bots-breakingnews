@@ -18,7 +18,7 @@
  },
  "kmsKeyArn": "arn:aws:kms:eu-west-1:060170161162:key/59baa76b-e82d-492c-992a-64eeb1d04932",
  "vpcConfig": {
-   "SubnetIds": [ "subnet-213ef746", "subnet-3742566f" ],
+   "SubnetIds": [ "subnet-0423f763", "subnet-52a7b70a" ],
    "SecurityGroupIds": [ "sg-461a203f" ]
  }
 }
